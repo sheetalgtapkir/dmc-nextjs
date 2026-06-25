@@ -154,28 +154,96 @@ const faqs = [
 export default function Home() {
   return (
     <main>
-      <section className="bg-navy text-white">
-        <div className="container mx-auto px-4 py-20 text-center sm:px-6">
-          <p className="text-sm font-semibold uppercase tracking-[0.32em] text-saffron mb-4">
-            Honest advice for working professionals
-          </p>
-          <h1 className="mx-auto max-w-4xl text-4xl font-bold leading-tight md:text-5xl">
-            Find the MBA that fits the <span className="italic font-semibold text-saffron">life you already have.</span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-3xl text-base text-slate-200 leading-relaxed">
-            Distance, Online, Executive, or Correspondence, we counsel you through every credible private university programme in India. Compare fees, accreditation, and outcomes honestly.
-          </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a href="#lead" className="inline-flex rounded-full bg-saffron px-6 py-3 text-sm font-semibold text-navy transition hover:bg-[#d8830a]">
-              Speak to a counsellor →
-            </a>
-            <a href="#universities" className="inline-flex rounded-full border border-white/20 bg-white bg-opacity-10 px-6 py-3 text-sm font-semibold text-white transition hover:border-saffron hover:text-saffron">
-              Browse programmes
-            </a>
-          </div>
-        </div>
-      </section>
+      <section className="bg-cream">
+  <div className="container mx-auto px-4 py-24 sm:px-6">
+    
+  <div className="mb-6 flex items-center gap-3">
+  <span className="h-[2px] w-7 bg-saffron"></span>
 
+  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-saffron">
+    Honest advice for working professionals
+  </span>
+</div>
+  <h1
+  className="
+    max-w-[16ch]
+    text-[64px]
+    font-bold
+    leading-[1.08]
+    tracking-[-0.025em]
+    text-navy
+  "
+>
+  Find the MBA that fits the{" "}
+  <span
+    className="
+      font-lora
+      italic
+      font-medium
+      text-[#1E3A8A]
+    "
+  >
+    life you already have.
+  </span>
+</h1>
+ <p className="mt-6 max-w-[56ch] text-[18px] leading-[1.65] text-slate-600">
+  Distance, Online, Executive, or Correspondence, we counsel you through every
+  credible private university programme in India. Compare fees, accreditation,
+  and outcomes honestly. Then talk to a counsellor whose only job is finding
+  the right fit, not closing the sale.
+</p>
+
+  <div className="mt-10 flex flex-wrap gap-4">
+<a
+  href="#lead"
+  className="
+    group
+    inline-flex
+    items-center
+    rounded-[10px]
+    bg-[#E8930E]
+    px-8
+    py-[18px]
+    text-[18px]
+    font-semibold
+    text-[#0B1F4D]
+    shadow-[0_4px_12px_rgba(232,147,14,0.12)]
+    transform
+    transition-all
+    duration-200  
+    hover:text-[#0B1F4D]
+    hover:bg-[#d8830a]
+    hover:-translate-y-1
+    hover:shadow-[0_8px_20px_rgba(232,147,14,0.18)]
+  "
+>
+  Speak to a counsellor
+  <span className="ml-2 transition-transform duration-200 group-hover:translate-x-[2px]">
+    →
+  </span>
+</a>
+    <a
+      href="#universities"
+      className="inline-flex items-center
+rounded-md
+border
+border-[#0B1F4D]
+px-8
+py-[18px]
+text-[18px]
+font-semibold
+text-[#0B1F4D]
+transition-all
+hover:bg-[#0B1F4D]
+hover:text-white"
+    >
+      Browse programmes
+    </a>
+  </div>
+</div>
+</section>
+
+    
       <section className="bg-white py-8">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="rounded-3xl bg-slate-50 p-6 sm:p-8">
