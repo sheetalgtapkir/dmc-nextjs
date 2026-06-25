@@ -1,0 +1,21 @@
+{
+  "name": "Distance MBA College",
+  "short_name": "DMC",
+  "description": "Free honest counselling for Distance, Online, Executive MBA programmes from India's top universities",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0B1F4D",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

