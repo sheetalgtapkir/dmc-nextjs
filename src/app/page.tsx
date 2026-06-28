@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { LeadForm } from '@/components/sections/LeadForm'
-import { SectionHeading } from '@/components/sections/SectionHeading'
 
 export const metadata: Metadata = {
   title: 'Distance MBA College - Free Counselling for Distance, Online & Executive MBA',
@@ -14,7 +13,7 @@ const modeCards = [
     title: 'Distance MBA',
     meta: '₹40K – ₹2L · 2-2.5 years · Self-paced',
     description:
-      'Flexible mail and digital materials with minimal live instruction. Best for budget-conscious self-study learners.',
+      'Flexible, mailed and digital course materials, minimal live instruction. Best for self-study learners and budget-conscious professionals.',
     bestFor: 'Budget-conscious, self-paced learners',
     href: '/landing-page-online-mba',
   },
@@ -22,7 +21,7 @@ const modeCards = [
     title: 'Online MBA',
     meta: '₹1.2L – ₹3L · 1.5-2 years · Structured cohort',
     description:
-      'Live faculty sessions, structured calendar, recorded lectures, and graded assignments for working professionals.',
+      'Live faculty sessions, structured calendar, recorded lectures, graded assignments. Closer to a traditional MBA but fully remote.',
     bestFor: 'Structure-seekers with full-time jobs',
     href: '/programme-online-mba',
   },
@@ -30,16 +29,16 @@ const modeCards = [
     title: 'Executive MBA',
     meta: '₹3L – ₹25L · 1-2 years · Weekend / hybrid',
     description:
-      'Designed for senior leaders with peer networking and a high-value cohort experience.',
-    bestFor: 'Senior professionals with 5+ years experience',
+      'Designed for senior professionals with 5+ years of experience. Cohort peer network is a major value driver.',
+    bestFor: 'Senior leaders, 5+ years experience',
     href: '/programme-online-mba',
   },
   {
     title: 'Correspondence MBA',
     meta: '₹40K – ₹1.5L · 2-3 years · Traditional',
     description:
-      'Legacy-style correspondence learning with printed materials and self-paced study.',
-    bestFor: 'Traditional learners in tier 2/3 cities',
+      'The legacy term for distance learning. Suits traditional learners comfortable with printed materials and self-study.',
+    bestFor: 'Traditional learners, tier 2/3 cities',
     href: '/programme-online-mba',
   },
 ]
@@ -132,160 +131,90 @@ const faqs = [
   {
     question: 'Is an online MBA from a private university valid in India in 2026?',
     answer:
-      'Yes. UGC-DEB and AICTE recognised online MBA programmes from top private universities are formally equivalent to regular MBA degrees under current regulations.',
+      'Yes. UGC-DEB and AICTE recognised online MBA programmes from private universities like NMIMS, Symbiosis, and Amity are formally equivalent to regular MBA degrees per UGC notifications from 2020 to 2022. Most leading private universities now hold both UGC-DEB recognition and NAAC accreditation, often at A++ grade.',
   },
   {
-    question: 'What is the difference between Distance, Online, Executive, and Correspondence MBA?',
+    question: "What's the difference between Distance MBA, Online MBA, Executive MBA, and Correspondence MBA?",
     answer:
-      'Distance MBA is self-paced with minimal live teaching. Online MBA has structured live sessions. Executive MBA is for senior professionals with weekend or hybrid timetables. Correspondence MBA is the legacy self-study mode.',
+      'Distance MBA is self-paced with limited live instruction. Online MBA has structured live sessions and a cohort experience. Executive MBA is designed for senior professionals with 5+ years of experience, often weekend or hybrid format. Correspondence MBA is the legacy term for distance learning, used by older universities and learners.',
   },
   {
-    question: 'Why don’t you counsel learners on IGNOU MBA?',
+    question: "Why don't you counsel learners on IGNOU MBA?",
     answer:
-      'Distance MBA College specialises in private universities where counselling adds value through accreditation, fee comparison, and placement alignment.',
+      'IGNOU is an open university with government backing. Distance MBA College specialises in private universities where counselling adds the most value, comparing fees, accreditation, brand strength, and outcomes across 25+ private institutions like NMIMS, Symbiosis, Amity, and Manipal Jaipur.',
+  },
+  {
+    question: 'What does free counselling actually mean?',
+    answer:
+      "Our counsellors are paid by us, not by the universities. You pay nothing. Universities pay us a per-enrolment commission only when learners enrol, and counsellors are paid the same salary regardless of which university you choose. That's what keeps the advice honest.",
   },
   {
     question: 'How long does it take to get a counsellor call?',
     answer:
-      'Within 24 hours, often the same day. Hot leads are typically responded to within 30 minutes during business hours.',
+      'Within 24 hours, often the same day. For hot leads (those who have engaged deeply with comparison or apply pages), we typically respond within 30 minutes during business hours. WhatsApp follow-up is available if you prefer messaging over calls.',
   },
 ]
 
 export default function Home() {
   return (
-    <main>
-      <section className="bg-cream">
-  <div className="container mx-auto px-4 py-24 sm:px-6">
-    
-  <div className="mb-6 flex items-center gap-3">
-  <span className="h-[2px] w-7 bg-saffron"></span>
-
-  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-saffron">
-    Honest advice for working professionals
-  </span>
-</div>
-  <h1
-  className="
-    max-w-[16ch]
-    text-[64px]
-    font-bold
-    leading-[1.08]
-    tracking-[-0.025em]
-    text-navy
-  "
->
-  Find the MBA that fits the{" "}
-  <span
-    className="
-      font-lora
-      italic
-      font-medium
-      text-[#1E3A8A]
-    "
-  >
-    life you already have.
-  </span>
-</h1>
- <p className="mt-6 max-w-[56ch] text-[18px] leading-[1.65] text-slate-600">
-  Distance, Online, Executive, or Correspondence, we counsel you through every
-  credible private university programme in India. Compare fees, accreditation,
-  and outcomes honestly. Then talk to a counsellor whose only job is finding
-  the right fit, not closing the sale.
-</p>
-
-  <div className="mt-10 flex flex-wrap gap-4">
-<a
-  href="#lead"
-  className="
-    group
-    inline-flex
-    items-center
-    rounded-[10px]
-    bg-[#E8930E]
-    px-8
-    py-[18px]
-    text-[18px]
-    font-semibold
-    text-[#0B1F4D]
-    shadow-[0_4px_12px_rgba(232,147,14,0.12)]
-    transform
-    transition-all
-    duration-200  
-    hover:text-[#0B1F4D]
-    hover:bg-[#d8830a]
-    hover:-translate-y-1
-    hover:shadow-[0_8px_20px_rgba(232,147,14,0.18)]
-  "
->
-  Speak to a counsellor
-  <span className="ml-2 transition-transform duration-200 group-hover:translate-x-[2px]">
-    →
-  </span>
-</a>
-    <a
-      href="#universities"
-      className="inline-flex items-center
-rounded-md
-border
-border-[#0B1F4D]
-px-8
-py-[18px]
-text-[18px]
-font-semibold
-text-[#0B1F4D]
-transition-all
-hover:bg-[#0B1F4D]
-hover:text-white"
-    >
-      Browse programmes
-    </a>
-  </div>
-</div>
-</section>
-
-    
-      <section className="bg-white py-8">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="rounded-3xl bg-slate-50 p-6 sm:p-8">
-            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <p className="text-sm uppercase tracking-[0.3em] text-saffron">Trusted by</p>
-              <p className="text-xl font-semibold text-navy">18,000+ working professionals across India</p>
-            </div>
-            <div className="mt-6 flex flex-wrap gap-3 text-sm font-semibold text-navy">
-              <span className="rounded-full bg-white px-4 py-2 shadow-sm">UGC-DEB</span>
-              <span className="rounded-full bg-white px-4 py-2 shadow-sm">AICTE</span>
-              <span className="rounded-full bg-white px-4 py-2 shadow-sm">NAAC</span>
-              <span className="rounded-full bg-white px-4 py-2 shadow-sm">AIU</span>
-            </div>
+    <main className="home-page">
+      <section className="hero">
+        <div className="wrap">
+          <span className="eyebrow">Honest advice for working professionals</span>
+          <h1>
+            Find the MBA that fits the <span className="ital">life you already have.</span>
+          </h1>
+          <p className="hero-sub">
+            Distance, Online, Executive, or Correspondence, we counsel you through every credible private university programme in India. Compare fees, accreditation, and outcomes honestly. Then talk to a counsellor whose only job is finding the right fit, not closing the sale.
+          </p>
+          <div className="hero-actions">
+            <a href="#lead" className="btn btn-primary btn-lg">
+              Speak to a counsellor <span className="btn-arrow">→</span>
+            </a>
+            <a href="#universities" className="btn btn-secondary btn-lg">
+              Browse programmes
+            </a>
           </div>
         </div>
       </section>
 
-      <section className="section bg-cream">
-        <div className="container mx-auto px-4 sm:px-6">
-          <SectionHeading
-            eyebrow="Four ways to earn your MBA"
-            title={
-              <>
-                One brand. <span className="italic text-saffron">Four modes.</span> Twenty-five private universities.
-              </>
-            }
-            description="Working professionals in India have four credible ways to earn an MBA without quitting work. Each suits a different career stage, learning style, and budget."
-          />
+      <div className="trust">
+        <div className="wrap trust-inner">
+          <div className="trust-label">
+            Trusted by <strong>18,000+</strong> working professionals across India
+          </div>
+          <div className="trust-badges">
+            <span className="badge">UGC-DEB</span>
+            <span className="badge">AICTE</span>
+            <span className="badge">NAAC</span>
+            <span className="badge">AIU</span>
+          </div>
+        </div>
+      </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head">
+            <span className="eyebrow">Four ways to earn your MBA</span>
+            <h2>
+              One brand. <span className="ital">Four modes.</span> Twenty-five private universities.
+            </h2>
+            <p>
+              Working professionals in India have four credible ways to earn an MBA without quitting work. Each suits a different career stage, learning style, and budget.
+            </p>
+          </div>
+
+          <div className="mode-strip">
             {modeCards.map((mode) => (
-              <a
-                key={mode.title}
-                href={mode.href}
-                className="rounded-[24px] border border-hairline bg-white p-6 text-left transition hover:border-saffron/50 hover:shadow-xl"
-              >
-                <h3 className="text-xl font-semibold text-navy mb-2">{mode.title}</h3>
-                <p className="text-sm uppercase tracking-[0.22em] text-saffron mb-4">{mode.meta}</p>
-                <p className="text-slate leading-relaxed mb-6">{mode.description}</p>
-                <p className="text-sm font-semibold text-navy">Best for</p>
-                <p className="text-sm text-slate">{mode.bestFor}</p>
-                <span className="mt-6 inline-flex text-sm font-semibold text-saffron">Explore {mode.title} →</span>
+              <a key={mode.title} href={mode.href} className="mode-card">
+                <h3>{mode.title}</h3>
+                <p className="mode-meta">{mode.meta}</p>
+                <p>{mode.description}</p>
+                <div className="mode-best">
+                  <strong>Best for</strong>
+                  {mode.bestFor}
+                </div>
+                <span className="mode-link">Explore {mode.title} →</span>
               </a>
             ))}
           </div>
@@ -293,39 +222,39 @@ hover:text-white"
       </section>
 
       <section className="section bg-white" id="universities">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="wrap">
+          <div className="section-head section-head-split">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-saffron mb-4">Where our learners study</p>
-              <h2 className="text-3xl font-bold text-navy leading-tight">
-                Top private universities, <span className="italic text-saffron">in one comparable view.</span>
+              <span className="eyebrow">Where our learners study</span>
+              <h2>
+                Top private universities, <span className="ital">in one comparable view.</span>
               </h2>
             </div>
-            <a
-              href="/resource-distance-mba-guide"
-              className="inline-flex rounded-full border border-slate/30 bg-white px-5 py-3 text-sm font-semibold text-navy transition hover:border-saffron hover:text-saffron"
-            >
+            <a href="/resource-distance-mba-guide" className="btn btn-ghost">
               View all 25+ universities →
             </a>
           </div>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid-4">
             {universities.map((university) => (
-              <article key={university.title} className="rounded-[24px] border border-hairline bg-slate-50 p-6">
-                <div className="mb-4 flex items-center justify-between gap-4">
-                  <h3 className="text-lg font-semibold text-navy">{university.title}</h3>
-                  <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase text-slate">{university.badge}</span>
+              <article key={university.title} className="uni-card">
+                <div className="uni-card-header">
+                  <h3>{university.title}</h3>
+                  <span className="uni-badge">{university.badge}</span>
                 </div>
-                <div className="grid gap-3 border-t border-hairline pt-4 text-sm text-slate">
+                <div className="uni-card-meta">
                   <div>
-                    Fee <strong className="text-navy">{university.fee}</strong>
+                    Fee<strong>{university.fee}</strong>
                   </div>
                   <div>
-                    Duration <strong className="text-navy">{university.duration}</strong>
+                    Duration<strong>{university.duration}</strong>
                   </div>
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-slate">{university.bestFor}</p>
-                <a href={university.href} className="mt-6 inline-flex text-sm font-semibold text-saffron">
+                <div className="uni-card-best">
+                  <em>Best for</em>
+                  {university.bestFor}
+                </div>
+                <a href={university.href} className="uni-card-link">
                   Learn more →
                 </a>
               </article>
@@ -334,126 +263,133 @@ hover:text-white"
         </div>
       </section>
 
-      <section className="section bg-cream">
-        <div className="container mx-auto px-4 sm:px-6">
-          <SectionHeading
-            eyebrow="Pick your stream"
-            title={
-              <>
-                Fourteen specialisations. <span className="italic text-saffron">One conversation</span> to find your fit.
-              </>
-            }
-          />
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head">
+            <span className="eyebrow">Pick your stream</span>
+            <h2>
+              Fourteen specialisations. <span className="ital">One conversation</span> to find your fit.
+            </h2>
+          </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="spec-grid">
             {specializations.map((spec) => (
-              <a
-                key={spec.title}
-                href={spec.href}
-                className="rounded-[20px] border border-hairline bg-white p-5 text-left transition hover:border-saffron hover:shadow-lg"
-              >
-                <h4 className="text-lg font-semibold text-navy mb-2">{spec.title}</h4>
-                <p className="text-slate text-sm leading-relaxed">{spec.description}</p>
-                <span className="mt-4 inline-flex text-sm font-semibold text-saffron">→</span>
+              <a key={spec.title} href={spec.href} className="spec-card">
+                <h4>{spec.title}</h4>
+                <p>{spec.description}</p>
+                <span className="spec-card-arrow">→</span>
               </a>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-navy text-white">
-        <div className="container mx-auto px-4 py-20 sm:px-6 text-center">
-          <p className="text-7xl font-display leading-none text-saffron opacity-20">“</p>
-          <p className="mx-auto mt-6 max-w-3xl text-3xl font-semibold leading-tight">
-            Talk to us once and you will know exactly which programme is right for you, and why.
-          </p>
-          <p className="mt-4 text-sm uppercase tracking-[0.28em] text-saffron/90">Our brand promise</p>
-        </div>
+      <section className="bg-navy pullquote">
+        <div className="pullquote-mark">&quot;</div>
+        <p className="pullquote-text">Talk to us once and you will know exactly which programme is right for you, and why.</p>
+        <p className="pullquote-attr">Our brand promise</p>
       </section>
 
       <section className="section">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid gap-10 lg:grid-cols-[280px_1fr]">
+        <div className="wrap">
+          <div className="section-head">
+            <span className="eyebrow">Why people trust us</span>
+            <h2>
+              You&apos;ll speak with <span className="ital">a real person</span>, not a script.
+            </h2>
+          </div>
+          <div className="counsel">
+            <div className="counsel-avatar">P</div>
             <div>
-              <SectionHeading
-                eyebrow="Why people trust us"
-                title={
-                  <>
-                    You&apos;ll speak with <span className="italic text-saffron">a real person</span>, not a script.
-                  </>
-                }
-                description="We listen to your career goal, then recommend the MBA mode and university that actually match your priorities."
-              />
-            </div>
-            <div className="rounded-[24px] border border-hairline bg-white p-8 shadow-sm">
-              <div className="flex items-center gap-5 border-b border-hairline pb-6">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-saffron text-navy text-2xl font-bold">P</div>
-                <div>
-                  <p className="text-lg font-semibold text-navy">Priya Sharma</p>
-                  <p className="text-sm text-slate">Senior Counsellor · 11 years · Pune</p>
-                </div>
-              </div>
-              <p className="mt-6 text-slate leading-relaxed">
+              <p className="counsel-quote">
                 Before I suggest anything, tell me what you are actually trying to change in the next two years. The right programme is the one that answers that question.
+              </p>
+              <p className="counsel-attr">
+                Priya Sharma<span>Senior Counsellor · 11 years · Pune</span>
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section bg-mist">
-        <div className="container mx-auto px-4 sm:px-6 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.32em] text-saffron">Want a quick answer first?</p>
-          <h2 className="mt-4 text-3xl font-bold text-navy leading-tight">
-            Chat with <span className="italic text-saffron">Aarya, our AI counsellor.</span>
+      <section className="section-sm bg-mist">
+        <div className="wrap text-center">
+          <span className="eyebrow justify-center">Want a quick answer first?</span>
+          <h2 className="mx-auto mb-4">
+            Chat with <span className="ital">Aarya, our AI counsellor.</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-slate leading-relaxed">
+          <p className="lead mx-auto mb-8">
             Aarya can answer questions about programmes, fees, eligibility, and timelines in seconds. When you&apos;re ready for a deeper conversation, she&apos;ll connect you with a human counsellor.
           </p>
-          <a href="#lead" className="mt-8 inline-flex rounded-full bg-navy px-8 py-3 text-sm font-semibold text-white transition hover:bg-slate-900">
+          <a href="#lead" className="btn btn-primary">
             Start the chat →
           </a>
         </div>
       </section>
 
       <section className="section" id="lead">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="wrap">
+          <div className="lead-section">
             <div>
-              <SectionHeading
-                eyebrow="Your next step"
-                title={
-                  <>
-                    One conversation. <span className="italic text-saffron">No commitment.</span>
-                  </>
-                }
-                description="Tell us about yourself in four short fields. A counsellor will call within 24 hours with a shortlist matched to your goal, not a sales pitch."
-              />
-              <ul className="mt-8 space-y-3 text-sm text-slate leading-relaxed">
-                <li>• Honest comparisons across 25+ private universities</li>
-                <li>• Counselling is genuinely free, no card details ever</li>
-                <li>• We tell you if a particular MBA mode is the wrong choice for you</li>
-                <li>• Counsellors who have advised 18,000+ working professionals</li>
+              <span className="eyebrow">Your next step</span>
+              <h2>
+                One conversation. <span className="ital">No commitment.</span>
+              </h2>
+              <p className="lead">
+                Tell us about yourself in four short fields. A counsellor will call within 24 hours with a shortlist matched to your goal, not a sales pitch.
+              </p>
+              <ul className="lead-bullets">
+                <li className="lead-bullet">Honest comparisons across 25+ private universities</li>
+                <li className="lead-bullet">Counselling is genuinely free, no card details ever</li>
+                <li className="lead-bullet">We tell you if a particular MBA mode is the wrong choice for you</li>
+                <li className="lead-bullet">Counsellors who have advised 18,000+ working professionals</li>
               </ul>
             </div>
-            <LeadForm />
+
+            <LeadForm variant="reference" />
           </div>
         </div>
       </section>
 
       <section className="section bg-white">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-saffron">Common questions</p>
-            <h2 className="mt-4 text-3xl font-bold text-navy leading-tight">
-              Honest answers to <span className="italic text-saffron">what people actually ask.</span>
+        <div className="wrap">
+          <div className="section-head text-center mx-auto">
+            <span className="eyebrow justify-center">Common questions</span>
+            <h2 className="mx-auto">
+              Honest answers to <span className="ital">what people actually ask.</span>
             </h2>
           </div>
-          <div className="mx-auto mt-10 max-w-3xl">
-            <FAQSection items={faqs} />
+
+          <div className="mx-auto">
+            <FAQSection items={faqs} variant="reference" />
           </div>
         </div>
       </section>
+
+      <div className="mobile-actions" aria-label="Quick contact actions">
+        <div className="mobile-actions-grid">
+          <a href="tel:+918669661005" className="mobile-action">
+            <span className="mobile-action-icon">☎</span>
+            <span>Call</span>
+          </a>
+          <a
+            href="https://wa.me/918669661005?text=I'm%20interested%20in%20a%20distance%20MBA"
+            className="mobile-action"
+          >
+            <span className="mobile-action-icon">💬</span>
+            <span>WhatsApp</span>
+          </a>
+          <a href="#lead" className="mobile-action primary">
+            <span className="mobile-action-icon">🤖</span>
+            <span>Chat with Aarya</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="#lead" className="chat-launcher" aria-label="Open AI counsellor chat">
+        💬
+        <span className="chat-launcher-pulse" />
+      </a>
     </main>
   )
 }

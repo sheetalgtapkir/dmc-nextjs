@@ -8,6 +8,7 @@ type LeadFormProps = {
   subtitle?: string
   courses?: string[]
   hideCity?: boolean
+  variant?: 'default' | 'reference'
 }
 
 const defaultCourses = [
@@ -23,6 +24,7 @@ export function LeadForm({
   subtitle = 'Calls within 24 hours, often the same day.',
   courses = defaultCourses,
   hideCity = false,
+  variant = 'default',
 }: LeadFormProps) {
   const { submit, loading, state } = useLeadForm()
   const [name, setName] = useState('')
@@ -41,6 +43,81 @@ export function LeadForm({
       email: '',
       source: window.location.pathname,
     })
+  }
+
+  if (variant === 'reference') {
+    return (
+      <form className="form-card" onSubmit={onSubmit}>
+        <h3 className="form-card-title">{heading}</h3>
+        <p className="form-card-sub">{subtitle}</p>
+
+        <div className="field">
+          <label htmlFor="lead-name">Your name</label>
+          <input
+            id="lead-name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            type="text"
+            placeholder="e.g. Rahul Sharma"
+            required
+          />
+        </div>
+
+        <div className="field field-phone">
+          <label htmlFor="lead-phone">Phone</label>
+          <input
+            id="lead-phone"
+            value={phone}
+            onChange={(event) => setPhone(event.target.value)}
+            type="tel"
+            placeholder="86696 61005"
+            required
+          />
+        </div>
+
+        <div className="field">
+          <label htmlFor="lead-course">Course of interest</label>
+          <select
+            id="lead-course"
+            value={course}
+            onChange={(event) => setCourse(event.target.value)}
+          >
+            {courses.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {!hideCity ? (
+          <div className="field">
+            <label htmlFor="lead-city">City</label>
+            <input
+              id="lead-city"
+              value={city}
+              onChange={(event) => setCity(event.target.value)}
+              type="text"
+              placeholder="e.g. Mumbai"
+            />
+          </div>
+        ) : null}
+
+        <button type="submit" disabled={loading} className="btn btn-primary btn-block btn-lg disabled:cursor-not-allowed disabled:opacity-60">
+          {loading ? 'Submitting...' : 'Request a callback →'}
+        </button>
+        <p className="form-foot">
+          By submitting, you agree to receive a counsellor call. We never share your number with universities.
+        </p>
+
+        {state.success ? (
+          <p className="mt-4 text-sm text-success">{state.message ?? 'Thanks! A counsellor will contact you soon.'}</p>
+        ) : null}
+        {state.error ? (
+          <p className="mt-4 text-sm text-error">{state.error}</p>
+        ) : null}
+      </form>
+    )
   }
 
   return (

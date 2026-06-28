@@ -1,11 +1,32 @@
+import { Inter, Poppins, Lora } from 'next/font/google'
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
 
+
+
 const siteName = 'Distance MBA College'
 const description = 'Compare honest advice on Distance, Online, Executive MBA programmes from India\'s top private universities. Free counselling from senior advisors.'
 const url = process.env.NEXT_PUBLIC_SITE_URL || 'https://distancembacollege.com'
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+})
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  variable: '--font-display',
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+})
+
+const lora = Lora({
+  subsets: ['latin'],
+  variable: '--font-voice',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: {
@@ -50,7 +71,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
       </head>
-      <body className="min-h-screen bg-cream text-ink">
+      <body  className={`${inter.variable} ${poppins.variable} ${lora.variable} min-h-screen bg-cream text-ink`}>
         <Header />
         {children}
         <Footer />

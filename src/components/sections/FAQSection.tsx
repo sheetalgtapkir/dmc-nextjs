@@ -5,9 +5,23 @@ type FAQItem = {
 
 type FAQSectionProps = {
   items: FAQItem[]
+  variant?: 'default' | 'reference'
 }
 
-export function FAQSection({ items }: FAQSectionProps) {
+export function FAQSection({ items, variant = 'default' }: FAQSectionProps) {
+  if (variant === 'reference') {
+    return (
+      <div className="faq">
+        {items.map((item) => (
+          <details key={item.question} className="faq-item">
+            <summary className="faq-question">{item.question}</summary>
+            <div className="faq-answer">{item.answer}</div>
+          </details>
+        ))}
+      </div>
+    )
+  }
+
   return (
     <div className="space-y-4">
       {items.map((item) => (
